@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ggshiney blog</title><link href="http://blog.ggshiney.com/" rel="alternate"></link><link href="http://blog.ggshiney.com/feeds/all.atom.xml" rel="self"></link><id>http://blog.ggshiney.com/</id><updated>2013-05-13T18:20:12+08:00</updated><entry><title>Ubuntu配置PPTP VPN</title><link href="http://blog.ggshiney.com/posts/2013/05/13/pptp-vpn-on-ubuntu.html" rel="alternate"></link><updated>2013-05-13T18:20:12+08:00</updated><author><name>ggshiney</name></author><id>tag:blog.ggshiney.com,2013-05-13:posts/2013/05/13/pptp-vpn-on-ubuntu.html</id><summary type="html">&lt;p&gt;接手一台新服务器，简单记录一下pptp vpn加ufw防火墙在ubuntu上的设置。
+这样学校范围内就能实现手机通过vpn免费上网了。
+同样，在校外也可以通过vpn访问校园网资源。&lt;/p&gt;
+&lt;h2&gt;配置PPTP&lt;/h2&gt;
+&lt;p&gt;安装pptpd软件包：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;pptpd&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;编辑&lt;code&gt;/etc/pptpd.conf&lt;/code&gt;配置文件：
+修改其中的localip为pptp服务端的vpn网关ip，remoteip为pptp客户端分配的ip地址范围。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;localip&lt;/span&gt; &lt;span class="mf"&gt;192.168.100.1&lt;/span&gt;
+&lt;span class="n"&gt;remoteip&lt;/span&gt; &lt;span class="mf"&gt;192.168.100.101&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;110&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;编辑&lt;code&gt;/etc/ppp/pptpd-options&lt;/code&gt;：
+修改ms-dns字段，当使用windows pptp客户端时获取的DNS。
+其实我只为了服务一台iphone，这里并不需要设置。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ms&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dns&lt;/span&gt; &lt;span class="mf"&gt;114.114.114.114&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;编辑&lt;code&gt;/etc/ppp/chap-secrets&lt;/code&gt;：
+对应的四个字段为客户端连接时使用的用户名、服务、密码、ip。
+服务名对应&lt;code&gt;pptpd-options&lt;/code&gt;中的对应字段值，如默认则为&lt;code&gt;pptpd&lt;/code&gt;。
+ip地址设置&lt;code&gt;*&lt;/code&gt;为允许任意来源。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;USERNAME&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;    &lt;span class="n"&gt;pptpd&lt;/span&gt;    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;PASSWORD&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;    &lt;span class="o"&gt;*&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;编辑&lt;code&gt;/etc/sysctl.conf&lt;/code&gt;：开启路由转发。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;net&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ipv4&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ip_forward&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;通过如下命令使之生效：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;sysctl&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;重启&lt;code&gt;pptpd&lt;/code&gt;服务：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;service&lt;/span&gt; &lt;span class="n"&gt;pptpd&lt;/span&gt; &lt;span class="n"&gt;restart&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;如果不配置ufw防火墙的话，至此即可实现vpn认证连接。
+如需要实现vpn上网，仍需要设置iptables：(如后面配置ufw则不用这一步)
+其中&lt;code&gt;-s&lt;/code&gt;指定的来源地址对应&lt;code&gt;/etc/pptpd.conf&lt;/code&gt;中的ip网段。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;iptables&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;nat&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="n"&gt;POSTROUTING&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="mf"&gt;192.168.100.0&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;24&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="n"&gt;eth0&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="n"&gt;MASQUERADE&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;配置ufw&lt;/h2&gt;
+&lt;p&gt;如果系统启用了ufw防火墙，还需进一步配置。&lt;/p&gt;
+&lt;p&gt;编辑&lt;code&gt;/etc/netword/interfaces&lt;/code&gt;：
+设置eth0的ip别名：
+address对应&lt;code&gt;/etc/pptpd.conf&lt;/code&gt;中的设置。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;auto&lt;/span&gt; &lt;span class="n"&gt;eth0&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="n"&gt;iface&lt;/span&gt; &lt;span class="n"&gt;eth0&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;inet&lt;/span&gt; &lt;span class="k"&gt;static&lt;/span&gt;
+&lt;span class="n"&gt;address&lt;/span&gt; &lt;span class="mf"&gt;192.168.100.1&lt;/span&gt;
+&lt;span class="n"&gt;netmask&lt;/span&gt; &lt;span class="mf"&gt;255.255.255.0&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;编辑&lt;code&gt;/etc/default/ufw&lt;/code&gt;：
+修改&lt;code&gt;DEFAULT_FORWARD_POLICY&lt;/code&gt;字段为&lt;code&gt;ACCEPT&lt;/code&gt;。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;DEFAULT_FORWARD_POLICY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;“&lt;/span&gt;&lt;span class="n"&gt;ACCEPT&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;编辑&lt;code&gt;/etc/ufw/before.rules&lt;/code&gt;：
+加入如下内容至&lt;code&gt;*filter&lt;/code&gt;规则前，通过iptables实现转发。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;nat&lt;/span&gt;
+&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;POSTROUTING&lt;/span&gt; &lt;span class="n"&gt;ACCEPT&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="n"&gt;POSTROUTING&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="mf"&gt;192.168.2.0&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;24&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="n"&gt;eth0&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="n"&gt;MASQUERADE&lt;/span&gt;
+
+&lt;span class="n"&gt;COMMIT&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;ufw中加入允许pptp默认的1723端口：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ufw&lt;/span&gt; &lt;span class="n"&gt;allow&lt;/span&gt; &lt;span class="mi"&gt;1723&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;最后重启服务：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;service&lt;/span&gt; &lt;span class="n"&gt;networking&lt;/span&gt; &lt;span class="n"&gt;restart&lt;/span&gt;
+&lt;span class="n"&gt;service&lt;/span&gt; &lt;span class="n"&gt;ufw&lt;/span&gt; &lt;span class="n"&gt;restart&lt;/span&gt;
+&lt;span class="n"&gt;service&lt;/span&gt; &lt;span class="n"&gt;pptpd&lt;/span&gt; &lt;span class="n"&gt;restart&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;至此pptp vpn的服务器端配置完毕。&lt;/p&gt;
+&lt;h2&gt;参考&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://silverlinux.blogspot.com/2012/05/how-to-pptp-vpn-on-ubuntu-1204-pptpd.html"&gt;http://silverlinux.blogspot.com/2012/05/how-to-pptp-vpn-on-ubuntu-1204-pptpd.html&lt;/a&gt;&lt;/p&gt;</summary><category term="Ubuntu"></category></entry><entry><title>Arch Linux添加网络打印机</title><link href="http://blog.ggshiney.com/posts/2012/11/28/add-network-printer-for-archlinux.html" rel="alternate"></link><updated>2012-11-28T20:19:17+08:00</updated><author><name>ggshiney</name></author><id>tag:blog.ggshiney.com,2012-11-28:posts/2012/11/28/add-network-printer-for-archlinux.html</id><summary type="html">&lt;p&gt;终于，实验室买了台高级打印机，可以配置独立的IP地址，支持网络打印。
+索性给我这台Arch Linux也配置上网络打印功能。&lt;/p&gt;
+&lt;h2&gt;UNIX/Linux下的打印管理工具&lt;code&gt;CUPS&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://www.cups.org"&gt;CUPS&lt;/a&gt;(Common UNIX Printing System)，是Apple开发的一套UNIX开源打印系统。
+Arch下可可以通过&lt;code&gt;CUPS&lt;/code&gt;进行打印管理。&lt;/p&gt;
+&lt;p&gt;安装&lt;code&gt;CUPS&lt;/code&gt;很简单：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;pacman&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;S&lt;/span&gt; &lt;span class="n"&gt;cups&lt;/span&gt; &lt;span class="n"&gt;libcups&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;CPUS&lt;/code&gt;安装好后，需要根据打印机安装相应的driver。
+我们的HP打印机对应的驱动包&lt;code&gt;hplip&lt;/code&gt;，所有的HP打印机都可以使用：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;pacman&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;S&lt;/span&gt; &lt;span class="n"&gt;hplip&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;之后启动&lt;code&gt;CUPS&lt;/code&gt;守护进程，并把&lt;code&gt;CUPS&lt;/code&gt;加入启动服务。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;systemctl&lt;/span&gt; &lt;span class="n"&gt;start&lt;/span&gt; &lt;span class="n"&gt;cups&lt;/span&gt;
+&lt;span class="n"&gt;systemctl&lt;/span&gt; &lt;span class="n"&gt;enable&lt;/span&gt; &lt;span class="n"&gt;cups&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;CUPS&lt;/code&gt;的基本管理功能通过本地web页面进行操作，需要前用户在&lt;code&gt;sys&lt;/code&gt;组，在这里临时把当前用户加入&lt;code&gt;sys&lt;/code&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;usermod&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;aG&lt;/span&gt; &lt;span class="n"&gt;sys&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;USERNAME&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;打开浏览器&lt;a href="http://localhost:631"&gt;http://localhost:631&lt;/a&gt;，就可以看到&lt;code&gt;CUPS&lt;/code&gt;的配置页面了。&lt;/p&gt;
+&lt;p&gt;UI做的比较简洁，直接到&lt;code&gt;Administration&lt;/code&gt;页面&lt;code&gt;Add Printer&lt;/code&gt;即可。
+配置好后打印时就能看到刚刚添加的打印机了。&lt;/p&gt;
+&lt;h2&gt;参考&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://wiki.archlinux.org/index.php/Cups"&gt;https://wiki.archlinux.org/index.php/Cups&lt;/a&gt;&lt;/p&gt;</summary><category term="ArchLinux"></category></entry><entry><title>Mac OS下的文件扩展属性</title><link href="http://blog.ggshiney.com/posts/2012/11/22/file-extended-attributes-in-mac-os.html" rel="alternate"></link><updated>2012-11-22T20:36:52+08:00</updated><author><name>ggshiney</name></author><id>tag:blog.ggshiney.com,2012-11-22:posts/2012/11/22/file-extended-attributes-in-mac-os.html</id><summary type="html">&lt;h2&gt;恼人的&lt;code&gt;@&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;在mac下&lt;code&gt;ls -l&lt;/code&gt;，常常看到9位文件权限后面跟着一个&lt;code&gt;@&lt;/code&gt;符号，这货是干啥的？&lt;/p&gt;
+&lt;p&gt;原来，这就是mac文件系统的扩展属性。通过一些mac下的软件、工具操作文件后往往会给文件附加上扩展属性，而只通过&lt;code&gt;Terminal&lt;/code&gt;进行的一般文件操作则不会附加上这些属性。&lt;/p&gt;
+&lt;p&gt;但是扩展属性可能导致一些常见的操作在其他文件系统下产生多余文件，比如&lt;code&gt;tar&lt;/code&gt;。&lt;/p&gt;
+&lt;h2&gt;解决之道&lt;/h2&gt;
+&lt;p&gt;既然是扩展属性，总是有方法去掉的。&lt;/p&gt;
+&lt;p&gt;mac提供了&lt;code&gt;xattr&lt;/code&gt;进行扩展属性操作。可以先通过&lt;code&gt;ls -l@&lt;/code&gt;，增加一个&lt;code&gt;@&lt;/code&gt;参数查看文件有那些扩展属性。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ls&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;l&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt; &lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt;
+
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;rw&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;  &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;user&lt;/span&gt;  &lt;span class="n"&gt;staff&lt;/span&gt;    &lt;span class="mi"&gt;512&lt;/span&gt;  &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt; &lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt;
+    &lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apple&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TextEncoding&lt;/span&gt;      &lt;span class="mi"&gt;15&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;之后可以用&lt;code&gt;xattr&lt;/code&gt;删除之：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;xattr&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apple&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TextEncoding&lt;/span&gt; &lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="Mac OS"></category></entry><entry><title>Arch Linux配置双屏</title><link href="http://blog.ggshiney.com/posts/2012/11/14/config-dual-monitor-for-archlinux.html" rel="alternate"></link><updated>2012-11-14T20:27:19+08:00</updated><author><name>ggshiney</name></author><id>tag:blog.ggshiney.com,2012-11-14:posts/2012/11/14/config-dual-monitor-for-archlinux.html</id><summary type="html">&lt;h2&gt;前言&lt;/h2&gt;
+&lt;p&gt;实验室设备更新，捡来块有VGA+DVI双接口的Nvdia显卡。自己的老机器用的是集成显卡，便打算给自己的机器升级配置双显示屏。&lt;/p&gt;
+&lt;h2&gt;配置双屏显示&lt;/h2&gt;
+&lt;h3&gt;安装新显卡&lt;/h3&gt;
+&lt;p&gt;现在的显卡都是PCI-E接口的了。尽管PCI-E接口的显卡设备即插即用，但是仍需要在BIOS配置一下主显示设备。&lt;/p&gt;
+&lt;p&gt;顺道科普了一下BIOS中有关显卡的选项：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;IGD(Integrated Graphic Device): 集成显卡&lt;/li&gt;
+&lt;li&gt;PCI(Peripheral Component Interconnect): PCI显卡&lt;/li&gt;
+&lt;li&gt;PEG(PCI Express Graphics): PCI-E显卡&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;那就选择以PEG为主显示设备。&lt;/p&gt;
+&lt;h3&gt;驱动&lt;/h3&gt;
+&lt;p&gt;我的ArchLinux已经配置了xfce桌面环境，先装个NVIDIA驱动。&lt;/p&gt;
+&lt;p&gt;ArchLinux中列出所有的PCI设备：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;lspci&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;看到硕大的NVIDIA，确认是Nvdia的显卡，接着找找驱动。ArchLinux中的显卡驱动都是以&lt;code&gt;xf86-video&lt;/code&gt;开头的。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;pacman&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Ss&lt;/span&gt; &lt;span class="n"&gt;xf86&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;video&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;发现&lt;code&gt;xf86-video-nouveau&lt;/code&gt;是N卡的驱动，安装之。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;pacman&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;S&lt;/span&gt; &lt;span class="n"&gt;xf86&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;video&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;nouveau&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;配置双屏显示&lt;/h3&gt;
+&lt;p&gt;一切就绪后两个显示器显示相同，如果需要扩展显示桌面，还需要进行一番配置。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;randr&lt;/code&gt;(X Resize, Rotate and Reflect Extension)可以控制桌面的显示输出效果，如镜像、旋转等。&lt;code&gt;xrandr&lt;/code&gt;是&lt;code&gt;randr&lt;/code&gt;的命令行接口。&lt;/p&gt;
+&lt;p&gt;首先查看当前显示状态，列出X显示设备：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;xrandr&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;q&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;输出如下&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Screen&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;minimum&lt;/span&gt; &lt;span class="mi"&gt;320&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;current&lt;/span&gt; &lt;span class="mi"&gt;2880&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="mi"&gt;900&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;maximum&lt;/span&gt; &lt;span class="mi"&gt;8192&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="mi"&gt;8192&lt;/span&gt;
+&lt;span class="n"&gt;VGA&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;connected&lt;/span&gt; &lt;span class="mi"&gt;1440&lt;/span&gt;&lt;span class="n"&gt;x900&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1440&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;normal&lt;/span&gt; &lt;span class="n"&gt;left&lt;/span&gt; &lt;span class="n"&gt;inverted&lt;/span&gt; &lt;span class="n"&gt;right&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="n"&gt;axis&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="mi"&gt;408&lt;/span&gt;&lt;span class="n"&gt;mm&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="n"&gt;mm&lt;/span&gt;
+   &lt;span class="mi"&gt;1440&lt;/span&gt;&lt;span class="n"&gt;x900&lt;/span&gt;       &lt;span class="mf"&gt;59.9&lt;/span&gt;&lt;span class="o"&gt;*+&lt;/span&gt;   &lt;span class="mf"&gt;75.0&lt;/span&gt;  
+   &lt;span class="mi"&gt;1280&lt;/span&gt;&lt;span class="n"&gt;x1024&lt;/span&gt;      &lt;span class="mf"&gt;75.0&lt;/span&gt;     &lt;span class="mf"&gt;70.0&lt;/span&gt;     &lt;span class="mf"&gt;60.0&lt;/span&gt;  
+   &lt;span class="mi"&gt;1280&lt;/span&gt;&lt;span class="n"&gt;x960&lt;/span&gt;       &lt;span class="mf"&gt;60.0&lt;/span&gt;  
+   &lt;span class="mi"&gt;1366&lt;/span&gt;&lt;span class="n"&gt;x768&lt;/span&gt;       &lt;span class="mf"&gt;60.0&lt;/span&gt;  
+   &lt;span class="mi"&gt;1360&lt;/span&gt;&lt;span class="n"&gt;x768&lt;/span&gt;       &lt;span class="mf"&gt;60.0&lt;/span&gt;  
+   &lt;span class="mi"&gt;1280&lt;/span&gt;&lt;span class="n"&gt;x800&lt;/span&gt;       &lt;span class="mf"&gt;74.9&lt;/span&gt;     &lt;span class="mf"&gt;59.8&lt;/span&gt;  
+   &lt;span class="mi"&gt;1152&lt;/span&gt;&lt;span class="n"&gt;x864&lt;/span&gt;       &lt;span class="mf"&gt;75.0&lt;/span&gt;  
+   &lt;span class="mi"&gt;1280&lt;/span&gt;&lt;span class="n"&gt;x768&lt;/span&gt;       &lt;span class="mf"&gt;74.9&lt;/span&gt;     &lt;span class="mf"&gt;59.9&lt;/span&gt;  
+   &lt;span class="mi"&gt;1024&lt;/span&gt;&lt;span class="n"&gt;x768&lt;/span&gt;       &lt;span class="mf"&gt;75.1&lt;/span&gt;     &lt;span class="mf"&gt;70.1&lt;/span&gt;     &lt;span class="mf"&gt;60.0&lt;/span&gt;  
+   &lt;span class="mi"&gt;1024&lt;/span&gt;&lt;span class="n"&gt;x576&lt;/span&gt;       &lt;span class="mf"&gt;60.0&lt;/span&gt;  
+   &lt;span class="mi"&gt;832&lt;/span&gt;&lt;span class="n"&gt;x624&lt;/span&gt;        &lt;span class="mf"&gt;74.6&lt;/span&gt;  
+   &lt;span class="mi"&gt;800&lt;/span&gt;&lt;span class="n"&gt;x600&lt;/span&gt;        &lt;span class="mf"&gt;72.2&lt;/span&gt;     &lt;span class="mf"&gt;75.0&lt;/span&gt;     &lt;span class="mf"&gt;60.3&lt;/span&gt;     &lt;span class="mf"&gt;56.2&lt;/span&gt;  
+   &lt;span class="mi"&gt;848&lt;/span&gt;&lt;span class="n"&gt;x480&lt;/span&gt;        &lt;span class="mf"&gt;60.0&lt;/span&gt;  
+   &lt;span class="mi"&gt;640&lt;/span&gt;&lt;span class="n"&gt;x480&lt;/span&gt;        &lt;span class="mf"&gt;72.8&lt;/span&gt;     &lt;span class="mf"&gt;75.0&lt;/span&gt;     &lt;span class="mf"&gt;66.7&lt;/span&gt;     &lt;span class="mf"&gt;60.0&lt;/span&gt;  
+   &lt;span class="mi"&gt;720&lt;/span&gt;&lt;span class="n"&gt;x400&lt;/span&gt;        &lt;span class="mf"&gt;70.1&lt;/span&gt;  
+&lt;span class="n"&gt;DVI&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;I&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;connected&lt;/span&gt; &lt;span class="mi"&gt;1440&lt;/span&gt;&lt;span class="n"&gt;x900&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;normal&lt;/span&gt; &lt;span class="n"&gt;left&lt;/span&gt; &lt;span class="n"&gt;inverted&lt;/span&gt; &lt;span class="n"&gt;right&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="n"&gt;axis&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="mi"&gt;408&lt;/span&gt;&lt;span class="n"&gt;mm&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="n"&gt;mm&lt;/span&gt;
+   &lt;span class="mi"&gt;1440&lt;/span&gt;&lt;span class="n"&gt;x900&lt;/span&gt;       &lt;span class="mf"&gt;59.9&lt;/span&gt;&lt;span class="o"&gt;*+&lt;/span&gt;   &lt;span class="mf"&gt;75.0&lt;/span&gt;  
+   &lt;span class="mi"&gt;1280&lt;/span&gt;&lt;span class="n"&gt;x1024&lt;/span&gt;      &lt;span class="mf"&gt;75.0&lt;/span&gt;     &lt;span class="mf"&gt;70.0&lt;/span&gt;     &lt;span class="mf"&gt;60.0&lt;/span&gt;  
+   &lt;span class="mi"&gt;1280&lt;/span&gt;&lt;span class="n"&gt;x960&lt;/span&gt;       &lt;span class="mf"&gt;60.0&lt;/span&gt;  
+   &lt;span class="mi"&gt;1366&lt;/span&gt;&lt;span class="n"&gt;x768&lt;/span&gt;       &lt;span class="mf"&gt;60.0&lt;/span&gt;  
+   &lt;span class="mi"&gt;1360&lt;/span&gt;&lt;span class="n"&gt;x768&lt;/span&gt;       &lt;span class="mf"&gt;60.0&lt;/span&gt;  
+   &lt;span class="mi"&gt;1280&lt;/span&gt;&lt;span class="n"&gt;x800&lt;/span&gt;       &lt;span class="mf"&gt;74.9&lt;/span&gt;     &lt;span class="mf"&gt;59.8&lt;/span&gt;  
+   &lt;span class="mi"&gt;1152&lt;/span&gt;&lt;span class="n"&gt;x864&lt;/span&gt;       &lt;span class="mf"&gt;75.0&lt;/span&gt;  
+   &lt;span class="mi"&gt;1280&lt;/span&gt;&lt;span class="n"&gt;x768&lt;/span&gt;       &lt;span class="mf"&gt;74.9&lt;/span&gt;     &lt;span class="mf"&gt;59.9&lt;/span&gt;  
+   &lt;span class="mi"&gt;1024&lt;/span&gt;&lt;span class="n"&gt;x768&lt;/span&gt;       &lt;span class="mf"&gt;75.1&lt;/span&gt;     &lt;span class="mf"&gt;70.1&lt;/span&gt;     &lt;span class="mf"&gt;60.0&lt;/span&gt;  
+   &lt;span class="mi"&gt;1024&lt;/span&gt;&lt;span class="n"&gt;x576&lt;/span&gt;       &lt;span class="mf"&gt;60.0&lt;/span&gt;  
+   &lt;span class="mi"&gt;832&lt;/span&gt;&lt;span class="n"&gt;x624&lt;/span&gt;        &lt;span class="mf"&gt;74.6&lt;/span&gt;  
+   &lt;span class="mi"&gt;800&lt;/span&gt;&lt;span class="n"&gt;x600&lt;/span&gt;        &lt;span class="mf"&gt;72.2&lt;/span&gt;     &lt;span class="mf"&gt;75.0&lt;/span&gt;     &lt;span class="mf"&gt;60.3&lt;/span&gt;     &lt;span class="mf"&gt;56.2&lt;/span&gt;  
+   &lt;span class="mi"&gt;848&lt;/span&gt;&lt;span class="n"&gt;x480&lt;/span&gt;        &lt;span class="mf"&gt;60.0&lt;/span&gt;  
+   &lt;span class="mi"&gt;640&lt;/span&gt;&lt;span class="n"&gt;x480&lt;/span&gt;        &lt;span class="mf"&gt;72.8&lt;/span&gt;     &lt;span class="mf"&gt;75.0&lt;/span&gt;     &lt;span class="mf"&gt;66.7&lt;/span&gt;     &lt;span class="mf"&gt;60.0&lt;/span&gt;  
+   &lt;span class="mi"&gt;720&lt;/span&gt;&lt;span class="n"&gt;x400&lt;/span&gt;        &lt;span class="mf"&gt;70.1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;看到我的两个显示器对应着&lt;code&gt;VGA-1&lt;/code&gt;和&lt;code&gt;DVI-I-1&lt;/code&gt;，接下来设置两个显示器位置&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;xrandr&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;output&lt;/span&gt; &lt;span class="n"&gt;DVI&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;I&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="k"&gt;auto&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;output&lt;/span&gt; &lt;span class="n"&gt;VGA&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="k"&gt;auto&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;right&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;DVI&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;I&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;自动启动&lt;/h3&gt;
+&lt;p&gt;~~可以把这条命令通过 &lt;code&gt;Settings Manager&lt;/code&gt; =&amp;gt; &lt;code&gt;Sessioin and Startup&lt;/code&gt; =&amp;gt;  &lt;code&gt;Application Autostart&lt;/code&gt; 加入到xfce的自动启动列表中。~~&lt;/p&gt;
+&lt;p&gt;上面加入xfce自动启动列表后在系统重启后出现花屏。&lt;/p&gt;
+&lt;p&gt;可以把预览好位置的配置加入配置文件&lt;code&gt;/etc/X11/xorg.conf&lt;/code&gt;，以实现自动启动。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Section&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Monitor&amp;quot;&lt;/span&gt;
+    &lt;span class="n"&gt;Identifier&lt;/span&gt;  &lt;span class="s"&gt;&amp;quot;VGA-1&amp;quot;&lt;/span&gt;
+    &lt;span class="n"&gt;Option&lt;/span&gt;      &lt;span class="s"&gt;&amp;quot;Primary&amp;quot;&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;true&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;EndSection&lt;/span&gt;
+
+&lt;span class="n"&gt;Section&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Monitor&amp;quot;&lt;/span&gt;
+    &lt;span class="n"&gt;Identifier&lt;/span&gt;  &lt;span class="s"&gt;&amp;quot;DVI-I-1&amp;quot;&lt;/span&gt;
+    &lt;span class="n"&gt;Option&lt;/span&gt;      &lt;span class="s"&gt;&amp;quot;RightOf&amp;quot;&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;VGA-1&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;EndSection&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;参考&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://wiki.archlinux.org/index.php/DualScreen"&gt;https://wiki.archlinux.org/index.php/DualScreen&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://ianmarmour.com/2012/01/22/setting-up-dual-monitors-on-xfce-arch-linux/"&gt;http://ianmarmour.com/2012/01/22/setting-up-dual-monitors-on-xfce-arch-linux/&lt;/a&gt;&lt;/p&gt;</summary><category term="ArchLinux"></category></entry><entry><title>Tar in Mac OS X</title><link href="http://blog.ggshiney.com/posts/2012/10/31/tar-in-mac-os-x.html" rel="alternate"></link><updated>2012-10-31T20:21:59+08:00</updated><author><name>ggshiney</name></author><id>tag:blog.ggshiney.com,2012-10-31:posts/2012/10/31/tar-in-mac-os-x.html</id><summary type="html">&lt;p&gt;近来在做&lt;a href="http://openhatch.org/"&gt;OpenHatch&lt;/a&gt;，新手任务里面提到了tar命令在Mac OS X下的一个小tip。&lt;/p&gt;
+&lt;p&gt;通常在Mac OS X下会产程很多以&lt;code&gt;._&lt;/code&gt;开始的隐藏文件，在打tar包的时候往往也会包含进去。如果要把这些隐藏文件排除在外则，可以增加一个环境变量&lt;code&gt;COPYFILE_DISABLE=true&lt;/code&gt;。&lt;/p&gt;</summary><category term="Mac OS"></category></entry><entry><title>Unix Tool: time</title><link href="http://blog.ggshiney.com/posts/2012/09/02/unix-tool-time.html" rel="alternate"></link><updated>2012-09-02T19:35:39+08:00</updated><author><name>ggshiney</name></author><id>tag:blog.ggshiney.com,2012-09-02:posts/2012/09/02/unix-tool-time.html</id><summary type="html">&lt;h2&gt;统计程序执行时间：time&lt;/h2&gt;
+&lt;p&gt;近来做了些性能测试的工作，基本指标便是某一操作的执行时间。&lt;/p&gt;
+&lt;p&gt;Unix提供了一个简单获取程序执行时间的小工具&lt;code&gt;time&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;基本使用方法：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;time&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;command&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="err"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;arguments&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;简单地说，就是在需要获取时间的程序命令前面加上&lt;code&gt;time&lt;/code&gt;。统计输出三个执行时间，精确到ms。&lt;/p&gt;
+&lt;p&gt;不妨看看&lt;code&gt;sleep&lt;/code&gt;1秒的各项执行统计时间：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;time&lt;/span&gt; &lt;span class="n"&gt;sleep&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+
+&lt;span class="n"&gt;real&lt;/span&gt;    &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;m1&lt;/span&gt;&lt;span class="mf"&gt;.024&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
+&lt;span class="n"&gt;user&lt;/span&gt;    &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;m0&lt;/span&gt;&lt;span class="mf"&gt;.001&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;real为程序开始执行到执行结束总耗时；&lt;/li&gt;
+&lt;li&gt;user为程序在操作系统用户态的cpu执行时间；&lt;/li&gt;
+&lt;li&gt;sys为程序在操作系统内核态的cpu执行时间；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由于程序在执行时除了cpu处理指令外往往会产生io或其他开销，这部分耗时都计算在real中，因此user与sys之和往往小于real。&lt;/p&gt;
+&lt;h2&gt;两个time命令&lt;/h2&gt;
+&lt;p&gt;实际上在Unix中不仅仅只有一个&lt;code&gt;time&lt;/code&gt;，可以通过&lt;code&gt;type&lt;/code&gt;查看到所有&lt;code&gt;time&lt;/code&gt;命令的类型：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;time&lt;/span&gt;
+&lt;span class="n"&gt;time&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;shell&lt;/span&gt; &lt;span class="n"&gt;keyword&lt;/span&gt;
+&lt;span class="n"&gt;time&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;time&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;可见&lt;code&gt;time&lt;/code&gt;既是shell的一个shell关键字，同时也是一个外部命令。外部命令&lt;code&gt;/usr/bin/time&lt;/code&gt;更强大，还可以输出io等统计信息、指定时间输出的格式。&lt;/p&gt;
+&lt;h2&gt;time输出重定向&lt;/h2&gt;
+&lt;p&gt;time统计信息默认输出到标准错误输出&lt;code&gt;stderr&lt;/code&gt;，而不是标准输出&lt;code&gt;stdout&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;外部命令&lt;code&gt;/usr/bin/time&lt;/code&gt;可以&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;time&lt;/span&gt; &lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;hello&lt;/span&gt; &lt;span class="n"&gt;world&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="n"&gt;hello&lt;/span&gt; &lt;span class="n"&gt;world&lt;/span&gt;
+
+&lt;span class="n"&gt;real&lt;/span&gt;    &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;m0&lt;/span&gt;&lt;span class="mf"&gt;.000&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
+&lt;span class="n"&gt;user&lt;/span&gt;    &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;m0&lt;/span&gt;&lt;span class="mf"&gt;.000&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
+&lt;span class="n"&gt;sys&lt;/span&gt;     &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;m0&lt;/span&gt;&lt;span class="mf"&gt;.000&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;上述两个&lt;code&gt;time&lt;/code&gt;的输出处理有些区别，这是由于shell在处理&lt;/p&gt;</summary><category term="shell"></category></entry><entry><title>Vim中构造递增序列</title><link href="http://blog.ggshiney.com/posts/2012/05/28/make-an-increasing-list-in-vim.html" rel="alternate"></link><updated>2012-05-28T18:58:17+08:00</updated><author><name>ggshiney</name></author><id>tag:blog.ggshiney.com,2012-05-28:posts/2012/05/28/make-an-increasing-list-in-vim.html</id><summary type="html">&lt;p&gt;近日写爬虫遇到了个有趣的小需求：在构造初始URL列表的时候发现URL序列中的某个子串是个递增序列。上千行的数据自然不能手动一一键入，做为vim党首先要思考有没有什么简便的解决途径。&lt;/p&gt;
+&lt;h2&gt;递增与递减&lt;/h2&gt;
+&lt;p&gt;vim中有这样一对Key-map:&lt;code&gt;&amp;lt;C-a&amp;gt;&lt;/code&gt;和&lt;code&gt;&amp;lt;C-x&amp;gt;&lt;/code&gt;：&lt;code&gt;&amp;lt;C-a&amp;gt;&lt;/code&gt;用于将下一个数字递增1，&lt;code&gt;&amp;lt;C-x&amp;gt;&lt;/code&gt;用于将下一个数字递减1。&lt;/p&gt;
+&lt;p&gt;与大多数的vim命令一样，键入数字后再接命令则表示重复执行多次该命令。比如&lt;code&gt;5&amp;lt;C-a&amp;gt;&lt;/code&gt;将下一个数字递增5。&lt;/p&gt;
+&lt;h2&gt;宏&lt;/h2&gt;
+&lt;p&gt;vim的宏机制便于我们即时地创造、组合复杂的命令。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;qa&lt;/span&gt;
+&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="n"&gt;something&lt;/span&gt;&lt;span class="p"&gt;...&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;
+&lt;span class="n"&gt;q&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;q&lt;/code&gt;用于开始或结束一段宏的录制，&lt;code&gt;a&lt;/code&gt;代表触发这段宏的名字。&lt;/p&gt;
+&lt;p&gt;录制好后，按&lt;code&gt;@a&lt;/code&gt;就开始执行&lt;code&gt;do something&lt;/code&gt;的部分。&lt;/p&gt;
+&lt;h2&gt;构造列表&lt;/h2&gt;
+&lt;p&gt;例如有如下列表需要构造：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nl"&gt;http:&lt;/span&gt;&lt;span class="c1"&gt;//www.a.com/blog.php?page=1&lt;/span&gt;
+&lt;span class="nl"&gt;http:&lt;/span&gt;&lt;span class="c1"&gt;//www.a.com/blog.php?page=2&lt;/span&gt;
+&lt;span class="nl"&gt;http:&lt;/span&gt;&lt;span class="c1"&gt;//www.a.com/blog.php?page=3&lt;/span&gt;
+&lt;span class="p"&gt;...&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;可以输入第一行后录制一段宏：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;qa&lt;/span&gt;
+&lt;span class="n"&gt;Y&lt;/span&gt;
+&lt;span class="n"&gt;p&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="n"&gt;q&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;在这之后只要&lt;code&gt;1000@a&lt;/code&gt;就可以生成数值递增到1000的列表了。&lt;/p&gt;</summary><category term="vim"></category></entry></feed>

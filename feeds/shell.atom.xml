@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ggshiney blog</title><link href="http://blog.ggshiney.com/" rel="alternate"></link><link href="http://blog.ggshiney.com/feeds/shell.atom.xml" rel="self"></link><id>http://blog.ggshiney.com/</id><updated>2012-09-02T19:35:39+08:00</updated><entry><title>Unix Tool: time</title><link href="http://blog.ggshiney.com/posts/2012/09/02/unix-tool-time.html" rel="alternate"></link><updated>2012-09-02T19:35:39+08:00</updated><author><name>ggshiney</name></author><id>tag:blog.ggshiney.com,2012-09-02:posts/2012/09/02/unix-tool-time.html</id><summary type="html">&lt;h2&gt;统计程序执行时间：time&lt;/h2&gt;
+&lt;p&gt;近来做了些性能测试的工作，基本指标便是某一操作的执行时间。&lt;/p&gt;
+&lt;p&gt;Unix提供了一个简单获取程序执行时间的小工具&lt;code&gt;time&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;基本使用方法：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;time&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;command&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="err"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;arguments&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;简单地说，就是在需要获取时间的程序命令前面加上&lt;code&gt;time&lt;/code&gt;。统计输出三个执行时间，精确到ms。&lt;/p&gt;
+&lt;p&gt;不妨看看&lt;code&gt;sleep&lt;/code&gt;1秒的各项执行统计时间：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;time&lt;/span&gt; &lt;span class="n"&gt;sleep&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+
+&lt;span class="n"&gt;real&lt;/span&gt;    &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;m1&lt;/span&gt;&lt;span class="mf"&gt;.024&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
+&lt;span class="n"&gt;user&lt;/span&gt;    &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;m0&lt;/span&gt;&lt;span class="mf"&gt;.001&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;real为程序开始执行到执行结束总耗时；&lt;/li&gt;
+&lt;li&gt;user为程序在操作系统用户态的cpu执行时间；&lt;/li&gt;
+&lt;li&gt;sys为程序在操作系统内核态的cpu执行时间；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由于程序在执行时除了cpu处理指令外往往会产生io或其他开销，这部分耗时都计算在real中，因此user与sys之和往往小于real。&lt;/p&gt;
+&lt;h2&gt;两个time命令&lt;/h2&gt;
+&lt;p&gt;实际上在Unix中不仅仅只有一个&lt;code&gt;time&lt;/code&gt;，可以通过&lt;code&gt;type&lt;/code&gt;查看到所有&lt;code&gt;time&lt;/code&gt;命令的类型：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;time&lt;/span&gt;
+&lt;span class="n"&gt;time&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;shell&lt;/span&gt; &lt;span class="n"&gt;keyword&lt;/span&gt;
+&lt;span class="n"&gt;time&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;time&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;可见&lt;code&gt;time&lt;/code&gt;既是shell的一个shell关键字，同时也是一个外部命令。外部命令&lt;code&gt;/usr/bin/time&lt;/code&gt;更强大，还可以输出io等统计信息、指定时间输出的格式。&lt;/p&gt;
+&lt;h2&gt;time输出重定向&lt;/h2&gt;
+&lt;p&gt;time统计信息默认输出到标准错误输出&lt;code&gt;stderr&lt;/code&gt;，而不是标准输出&lt;code&gt;stdout&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;外部命令&lt;code&gt;/usr/bin/time&lt;/code&gt;可以&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;time&lt;/span&gt; &lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;hello&lt;/span&gt; &lt;span class="n"&gt;world&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="n"&gt;hello&lt;/span&gt; &lt;span class="n"&gt;world&lt;/span&gt;
+
+&lt;span class="n"&gt;real&lt;/span&gt;    &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;m0&lt;/span&gt;&lt;span class="mf"&gt;.000&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
+&lt;span class="n"&gt;user&lt;/span&gt;    &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;m0&lt;/span&gt;&lt;span class="mf"&gt;.000&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
+&lt;span class="n"&gt;sys&lt;/span&gt;     &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;m0&lt;/span&gt;&lt;span class="mf"&gt;.000&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;上述两个&lt;code&gt;time&lt;/code&gt;的输出处理有些区别，这是由于shell在处理&lt;/p&gt;</summary><category term="shell"></category></entry></feed>

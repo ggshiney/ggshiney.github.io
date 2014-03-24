@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>Vim中构造递增序列 - ggshiney blog</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <!-- Open Graph tags -->
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="Vim中构造递增序列"/>
+            <meta property="og:url" content="http://blog.ggshiney.com/posts/2012/05/28/make-an-increasing-list-in-vim.html"/>
+            <meta property="og:description" content="近日写爬虫遇到了个有趣的小需求：在构造初始URL列表的时候发现URL序列中的某个子串是个递增序列。上千行的数据自然不能手动一一键入，做为vim党首先要思考有没有什么简便的解决途径。 递增与递减 vim中有这样一对Key-map:<C-a>和<C-x>：<C-a>用于将下一个数字递增1，<C-x>用于将下一个数字递减1。 与大多数的vim命令一样，键入数字后再接命令则表示重复执行多次该命令。比如5<C-a>将下一个数字递增5。 宏 vim的宏机制便于我们即时地创造、组合复杂的命令。 qa % do something... % q q用于开始或结束一段宏的录制，a代表触发这段宏的名字。 录制好后，按@a就开始执行do something的部分。 构造列表 例如有如下列表需要构造： http://www.a.com/blog.php?page=1 http://www.a ..."/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://blog.ggshiney.com/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="http://blog.ggshiney.com/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://blog.ggshiney.com/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://blog.ggshiney.com/theme/css/style.css" type="text/css"/>
+
+        <link href="http://blog.ggshiney.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="ggshiney blog ATOM Feed"/>
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://blog.ggshiney.com/" class="navbar-brand">
+ggshiney blog            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="http://blog.ggshiney.com/pages/about.html">
+                             About
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://blog.ggshiney.com/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://blog.ggshiney.com/posts/2012/05/28/make-an-increasing-list-in-vim.html"
+                       rel="bookmark"
+                       title="Permalink to Vim中构造递增序列">
+                        Vim中构造递增序列
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2012-05-28T18:58:17"> Mon 28 May 2012</time>
+    </span>
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://blog.ggshiney.com/tag/vim.html">vim</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>近日写爬虫遇到了个有趣的小需求：在构造初始URL列表的时候发现URL序列中的某个子串是个递增序列。上千行的数据自然不能手动一一键入，做为vim党首先要思考有没有什么简便的解决途径。</p>
+<h2>递增与递减</h2>
+<p>vim中有这样一对Key-map:<code>&lt;C-a&gt;</code>和<code>&lt;C-x&gt;</code>：<code>&lt;C-a&gt;</code>用于将下一个数字递增1，<code>&lt;C-x&gt;</code>用于将下一个数字递减1。</p>
+<p>与大多数的vim命令一样，键入数字后再接命令则表示重复执行多次该命令。比如<code>5&lt;C-a&gt;</code>将下一个数字递增5。</p>
+<h2>宏</h2>
+<p>vim的宏机制便于我们即时地创造、组合复杂的命令。</p>
+<div class="highlight"><pre><span class="n">qa</span>
+<span class="o">%</span> <span class="k">do</span> <span class="n">something</span><span class="p">...</span> <span class="o">%</span>
+<span class="n">q</span>
+</pre></div>
+
+
+<p><code>q</code>用于开始或结束一段宏的录制，<code>a</code>代表触发这段宏的名字。</p>
+<p>录制好后，按<code>@a</code>就开始执行<code>do something</code>的部分。</p>
+<h2>构造列表</h2>
+<p>例如有如下列表需要构造：</p>
+<div class="highlight"><pre><span class="nl">http:</span><span class="c1">//www.a.com/blog.php?page=1</span>
+<span class="nl">http:</span><span class="c1">//www.a.com/blog.php?page=2</span>
+<span class="nl">http:</span><span class="c1">//www.a.com/blog.php?page=3</span>
+<span class="p">...</span>
+</pre></div>
+
+
+<p>可以输入第一行后录制一段宏：</p>
+<div class="highlight"><pre><span class="n">qa</span>
+<span class="n">Y</span>
+<span class="n">p</span>
+<span class="o">&lt;</span><span class="n">C</span><span class="o">-</span><span class="n">a</span><span class="o">&gt;</span>
+<span class="n">q</span>
+</pre></div>
+
+
+<p>在这之后只要<code>1000@a</code>就可以生成数值递增到1000的列表了。</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3 well well-sm" id="sidebar">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+                  <ul class="list-group" id="social">
+                    <li class="list-group-item"><a href="http://twitter.com/ggshiney"><i
+                            class="fa fa-twitter-square fa-lg"></i> twitter
+                    </a></li>
+                    <li class="list-group-item"><a href="http://github.com/ggshiney"><i
+                            class="fa fa-github-square fa-lg"></i> github
+                    </a></li>
+                  </ul>
+                </li>
+
+
+
+                <li class="list-group-item"><a href="http://blog.ggshiney.com/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                    <ul class="list-group" id="tags">
+                        <li class="list-group-item tag-1">
+                            <a href="http://blog.ggshiney.com/tag/archlinux.html">
+                                ArchLinux
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-1">
+                            <a href="http://blog.ggshiney.com/tag/mac-os.html">
+                                Mac OS
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="http://blog.ggshiney.com/tag/vim.html">
+                                vim
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="http://blog.ggshiney.com/tag/ubuntu.html">
+                                Ubuntu
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="http://blog.ggshiney.com/tag/shell.html">
+                                shell
+                            </a>
+                        </li>
+                    </ul>
+                </li>    
+    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+      <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://getpelican.com/" target="_blank">
+                Pelican
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="http://python.org/" target="_blank">
+                Python.org
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="http://jinja.pocoo.org/" target="_blank">
+                Jinja2
+            </a>
+        </li>
+      </ul>
+    </li>
+
+        </ul>
+    </section>
+
+</aside>        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2013 ggshiney
+            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://blog.ggshiney.com/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://blog.ggshiney.com/theme/js/respond.min.js"></script>
+
+</body>
+</html>

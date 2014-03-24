@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>shell - ggshiney blog</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <!-- Open Graph tags -->
+            <meta property="og:type" content="website"/>
+            <meta property="og:title" content="ggshiney blog"/>
+            <meta property="og:url" content="http://blog.ggshiney.com"/>
+            <meta property="og:description" content="ggshiney blog"/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://blog.ggshiney.com/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="http://blog.ggshiney.com/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://blog.ggshiney.com/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://blog.ggshiney.com/theme/css/style.css" type="text/css"/>
+
+        <link href="http://blog.ggshiney.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="ggshiney blog ATOM Feed"/>
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://blog.ggshiney.com/" class="navbar-brand">
+ggshiney blog            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="http://blog.ggshiney.com/pages/about.html">
+                             About
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://blog.ggshiney.com/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+            <article>
+                <h2><a href="http://blog.ggshiney.com/posts/2012/09/02/unix-tool-time.html">Unix Tool: time</a></h2>
+                <div class="summary"><h2>统计程序执行时间：time</h2>
+<p>近来做了些性能测试的工作，基本指标便是某一操作的执行时间。</p>
+<p>Unix提供了一个简单获取程序执行时间的小工具<code>time</code>。</p>
+<p>基本使用方法：</p>
+<div class="highlight"><pre><span class="nb">time</span> <span class="o">&lt;</span><span class="nb">command</span><span class="o">&gt;</span> <span class="err">[</span><span class="nb">arguments</span><span class="cp">]</span>
+</pre></div>
+
+
+<p>简单地说，就是在需要获取时间的程序命令前面加上<code>time</code>。统计输出三个执行时间，精确到ms。</p>
+<p>不妨看看<code>sleep</code>1秒的各项执行统计时间：</p>
+<div class="highlight"><pre><span class="err">$</span><span class="n">time</span> <span class="n">sleep</span> <span class="mi">1</span>
+
+<span class="n">real</span>    <span class="mi">0</span><span class="n">m1</span><span class="mf">.024</span><span class="n">s</span>
+<span class="n">user</span>    <span class="mi">0</span><span class="n">m0</span><span class="mf">.001</span><span class="n">s</span>
+</pre></div>
+
+
+<ul>
+<li>real为程序开始执行到执行结束总耗时；</li>
+<li>user为程序在操作系统用户态的cpu执行时间；</li>
+<li>sys为程序在操作系统内核态的cpu执行时间；</li>
+</ul>
+<p>由于程序在执行时除了cpu处理指令外往往会产生io或其他开销，这部分耗时都计算在real中，因此user与sys之和往往小于real。</p>
+<h2>两个time命令</h2>
+<p>实际上在Unix中不仅仅只有一个<code>time</code>，可以通过<code>type</code>查看到所有<code>time</code>命令的类型：</p>
+<div class="highlight"><pre><span class="err">$</span><span class="n">type</span> <span class="o">-</span><span class="n">a</span> <span class="n">time</span>
+<span class="n">time</span> <span class="n">is ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://blog.ggshiney.com/posts/2012/09/02/unix-tool-time.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+
+        </div>
+        <div class="col-sm-3 well well-sm" id="sidebar">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+                  <ul class="list-group" id="social">
+                    <li class="list-group-item"><a href="http://twitter.com/ggshiney"><i
+                            class="fa fa-twitter-square fa-lg"></i> twitter
+                    </a></li>
+                    <li class="list-group-item"><a href="http://github.com/ggshiney"><i
+                            class="fa fa-github-square fa-lg"></i> github
+                    </a></li>
+                  </ul>
+                </li>
+
+
+
+                <li class="list-group-item"><a href="http://blog.ggshiney.com/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                    <ul class="list-group" id="tags">
+                        <li class="list-group-item tag-1">
+                            <a href="http://blog.ggshiney.com/tag/archlinux.html">
+                                ArchLinux
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-1">
+                            <a href="http://blog.ggshiney.com/tag/mac-os.html">
+                                Mac OS
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="http://blog.ggshiney.com/tag/vim.html">
+                                vim
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="http://blog.ggshiney.com/tag/ubuntu.html">
+                                Ubuntu
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="http://blog.ggshiney.com/tag/shell.html">
+                                shell
+                            </a>
+                        </li>
+                    </ul>
+                </li>    
+    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+      <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://getpelican.com/" target="_blank">
+                Pelican
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="http://python.org/" target="_blank">
+                Python.org
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="http://jinja.pocoo.org/" target="_blank">
+                Jinja2
+            </a>
+        </li>
+      </ul>
+    </li>
+
+        </ul>
+    </section>
+
+</aside>        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2012 ggshiney
+            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://blog.ggshiney.com/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://blog.ggshiney.com/theme/js/respond.min.js"></script>
+
+</body>
+</html>
