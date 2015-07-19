@@ -1,13 +1,19 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
+=======
+<html lang="zh"
+>
+>>>>>>> gh-pages
 <head>
     <title>Unix Tool: time - ggshiney blog</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     
 
     <!-- Open Graph tags -->
@@ -25,12 +31,45 @@
 
         <link href="http://blog.ggshiney.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
               title="ggshiney blog ATOM Feed"/>
+=======
+
+
+
+<link rel="canonical" href="/posts/2012/09/02/unix-tool-time.html">
+
+        <meta name="author" content="ggshiney" />
+        <meta name="keywords" content="shell" />
+        <meta name="description" content="统计程序执行时间：time 近来做了些性能测试的工作，基本指标便是某一操作的执行时间。 Unix提供了一个简单获取程序执行时间的小工具time。 基本使用方法： time &lt;command&gt; [arguments] 简单地说，就是在需要获取时间的程序命令前面加上time。统计输出三个执行时间，精确到ms。 不妨看看sleep1秒的各项执行统计时间： $time sleep 1 real 0m1.024s user 0m0.001s real为程序开始执行到执行结束总耗时； user为程序在操作系统用户态的cpu执行时间； sys为程序在操作系统内核态的cpu执行时间； 由于程序在执行时除了cpu处理指令外往往会产生io或其他开销，这部分耗时都计算在real中，因此user与sys之和往往小于real。 两个time命令 实际上在Unix中不仅仅只有一个time，可以通过type查看到所有time命令的类型： $type -a time time is a shell keyword time ..." />
+
+        <meta property="og:site_name" content="ggshiney blog" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Unix Tool: time"/>
+        <meta property="og:url" content="/posts/2012/09/02/unix-tool-time.html"/>
+        <meta property="og:description" content="统计程序执行时间：time 近来做了些性能测试的工作，基本指标便是某一操作的执行时间。 Unix提供了一个简单获取程序执行时间的小工具time。 基本使用方法： time &lt;command&gt; [arguments] 简单地说，就是在需要获取时间的程序命令前面加上time。统计输出三个执行时间，精确到ms。 不妨看看sleep1秒的各项执行统计时间： $time sleep 1 real 0m1.024s user 0m0.001s real为程序开始执行到执行结束总耗时； user为程序在操作系统用户态的cpu执行时间； sys为程序在操作系统内核态的cpu执行时间； 由于程序在执行时除了cpu处理指令外往往会产生io或其他开销，这部分耗时都计算在real中，因此user与sys之和往往小于real。 两个time命令 实际上在Unix中不仅仅只有一个time，可以通过type查看到所有time命令的类型： $type -a time time is a shell keyword time ..."/>
+        <meta property="article:published_time" content="2012-09-02" />
+            <meta property="article:section" content="shell" />
+            <meta property="article:tag" content="shell" />
+            <meta property="article:author" content="ggshiney" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+>>>>>>> gh-pages
 
 </head>
 <body>
 
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<<<<<<< HEAD
     <div class="container">
+=======
+	<div class="container">
+>>>>>>> gh-pages
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -38,23 +77,40 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+<<<<<<< HEAD
             <a href="http://blog.ggshiney.com/" class="navbar-brand">
+=======
+            <a href="/" class="navbar-brand">
+>>>>>>> gh-pages
 ggshiney blog            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
+<<<<<<< HEAD
                          <li><a href="http://blog.ggshiney.com/pages/about.html">
+=======
+                         <li><a href="/pages/about.html">
+>>>>>>> gh-pages
                              About
                           </a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+<<<<<<< HEAD
                 <li><a href="http://blog.ggshiney.com/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+=======
+              <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+>>>>>>> gh-pages
             </ul>
         </div>
         <!-- /.navbar-collapse -->
     </div>
 </div> <!-- /.navbar -->
+<<<<<<< HEAD
 
+=======
+<!-- Banner -->
+<!-- End Banner -->
+>>>>>>> gh-pages
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
@@ -63,7 +119,11 @@ ggshiney blog            </a>
         <article>
             <header class="page-header">
                 <h1>
+<<<<<<< HEAD
                     <a href="http://blog.ggshiney.com/posts/2012/09/02/unix-tool-time.html"
+=======
+                    <a href="/posts/2012/09/02/unix-tool-time.html"
+>>>>>>> gh-pages
                        rel="bookmark"
                        title="Permalink to Unix Tool: time">
                         Unix Tool: time
@@ -76,13 +136,21 @@ ggshiney blog            </a>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
+<<<<<<< HEAD
         <i class="fa fa-calendar"></i><time datetime="2012-09-02T19:35:39"> Sun 02 September 2012</time>
+=======
+        <i class="fa fa-calendar"></i><time datetime="2012-09-02T19:35:39+08:00"> 日 02 九月 2012</time>
+>>>>>>> gh-pages
     </span>
 
 
 
 <span class="label label-default">Tags</span>
+<<<<<<< HEAD
 	<a href="http://blog.ggshiney.com/tag/shell.html">shell</a>
+=======
+	<a href="/tag/shell.html">shell</a>
+>>>>>>> gh-pages
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
@@ -90,16 +158,27 @@ ggshiney blog            </a>
 <p>近来做了些性能测试的工作，基本指标便是某一操作的执行时间。</p>
 <p>Unix提供了一个简单获取程序执行时间的小工具<code>time</code>。</p>
 <p>基本使用方法：</p>
+<<<<<<< HEAD
 <div class="highlight"><pre><span class="nb">time</span> <span class="o">&lt;</span><span class="nb">command</span><span class="o">&gt;</span> <span class="err">[</span><span class="nb">arguments</span><span class="cp">]</span>
+=======
+<div class="highlight"><pre>time &lt;command&gt; [arguments]
+>>>>>>> gh-pages
 </pre></div>
 
 
 <p>简单地说，就是在需要获取时间的程序命令前面加上<code>time</code>。统计输出三个执行时间，精确到ms。</p>
 <p>不妨看看<code>sleep</code>1秒的各项执行统计时间：</p>
+<<<<<<< HEAD
 <div class="highlight"><pre><span class="err">$</span><span class="n">time</span> <span class="n">sleep</span> <span class="mi">1</span>
 
 <span class="n">real</span>    <span class="mi">0</span><span class="n">m1</span><span class="mf">.024</span><span class="n">s</span>
 <span class="n">user</span>    <span class="mi">0</span><span class="n">m0</span><span class="mf">.001</span><span class="n">s</span>
+=======
+<div class="highlight"><pre><span class="nv">$time</span> sleep 1
+
+real    0m1.024s
+user    0m0.001s
+>>>>>>> gh-pages
 </pre></div>
 
 
@@ -111,9 +190,15 @@ ggshiney blog            </a>
 <p>由于程序在执行时除了cpu处理指令外往往会产生io或其他开销，这部分耗时都计算在real中，因此user与sys之和往往小于real。</p>
 <h2>两个time命令</h2>
 <p>实际上在Unix中不仅仅只有一个<code>time</code>，可以通过<code>type</code>查看到所有<code>time</code>命令的类型：</p>
+<<<<<<< HEAD
 <div class="highlight"><pre><span class="err">$</span><span class="n">type</span> <span class="o">-</span><span class="n">a</span> <span class="n">time</span>
 <span class="n">time</span> <span class="n">is</span> <span class="n">a</span> <span class="n">shell</span> <span class="n">keyword</span>
 <span class="n">time</span> <span class="n">is</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">time</span>
+=======
+<div class="highlight"><pre><span class="nv">$type</span> -a <span class="nb">time</span>
+<span class="nb">time </span>is a shell keyword
+<span class="nb">time </span>is /usr/bin/time
+>>>>>>> gh-pages
 </pre></div>
 
 
@@ -121,12 +206,21 @@ ggshiney blog            </a>
 <h2>time输出重定向</h2>
 <p>time统计信息默认输出到标准错误输出<code>stderr</code>，而不是标准输出<code>stdout</code>。</p>
 <p>外部命令<code>/usr/bin/time</code>可以</p>
+<<<<<<< HEAD
 <div class="highlight"><pre><span class="err">$</span><span class="n">time</span> <span class="n">echo</span> <span class="err">&#39;</span><span class="n">hello</span> <span class="n">world</span><span class="err">&#39;</span> <span class="mi">2</span><span class="o">&gt;</span> <span class="mi">1</span>
 <span class="n">hello</span> <span class="n">world</span>
 
 <span class="n">real</span>    <span class="mi">0</span><span class="n">m0</span><span class="mf">.000</span><span class="n">s</span>
 <span class="n">user</span>    <span class="mi">0</span><span class="n">m0</span><span class="mf">.000</span><span class="n">s</span>
 <span class="n">sys</span>     <span class="mi">0</span><span class="n">m0</span><span class="mf">.000</span><span class="n">s</span>
+=======
+<div class="highlight"><pre><span class="nv">$time</span> <span class="nb">echo</span> <span class="s1">&#39;hello world&#39;</span> 2&gt; 1
+hello world
+
+real    0m0.000s
+user    0m0.000s
+sys     0m0.000s
+>>>>>>> gh-pages
 </pre></div>
 
 
@@ -137,6 +231,7 @@ ggshiney blog            </a>
     </section>
 
         </div>
+<<<<<<< HEAD
         <div class="col-sm-3 well well-sm" id="sidebar">
 
 <aside>
@@ -184,6 +279,26 @@ ggshiney blog            </a>
                         </li>
                     </ul>
                 </li>    
+=======
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+              <ul class="list-group" id="social">
+                <li class="list-group-item"><a href="http://twitter.com/ggshiney"><i class="fa fa-twitter-square fa-lg"></i> twitter</a></li>
+                <li class="list-group-item"><a href="http://github.com/ggshiney"><i class="fa fa-github-square fa-lg"></i> github</a></li>
+              </ul>
+            </li>
+
+
+
+            <li class="list-group-item"><a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group " id="tags">
+                </ul>
+            </li>
+>>>>>>> gh-pages
     <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
       <ul class="list-group" id="links">
         <li class="list-group-item">
@@ -203,18 +318,29 @@ ggshiney blog            </a>
         </li>
       </ul>
     </li>
+<<<<<<< HEAD
 
         </ul>
     </section>
 
 </aside>        </div>
+=======
+    </ul>
+</section>
+            </aside>
+        </div>
+>>>>>>> gh-pages
     </div>
 </div>
 <footer>
    <div class="container">
       <hr>
       <div class="row">
+<<<<<<< HEAD
          <div class="col-xs-10">&copy; 2013 ggshiney
+=======
+         <div class="col-xs-10">&copy; 2015 ggshiney
+>>>>>>> gh-pages
             &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
@@ -222,6 +348,7 @@ ggshiney blog            </a>
       </div>
    </div>
 </footer>
+<<<<<<< HEAD
 <script src="http://code.jquery.com/jquery.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -229,6 +356,16 @@ ggshiney blog            </a>
 
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
 <script src="http://blog.ggshiney.com/theme/js/respond.min.js"></script>
+=======
+<script src="/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+>>>>>>> gh-pages
 
 </body>
 </html>

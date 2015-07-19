@@ -1,13 +1,19 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
+=======
+<html lang="zh"
+>
+>>>>>>> gh-pages
 <head>
     <title>vim - ggshiney blog</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     
 
     <!-- Open Graph tags -->
@@ -25,12 +31,40 @@
 
         <link href="http://blog.ggshiney.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
               title="ggshiney blog ATOM Feed"/>
+=======
+
+
+
+
+    <meta name="author" content="ggshiney" />
+    <meta name="keywords" content="vim" />
+
+    <!-- Open Graph tags -->
+        <meta property="og:site_name" content="ggshiney blog" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="ggshiney blog"/>
+        <meta property="og:url" content=""/>
+        <meta property="og:description" content="ggshiney blog"/>
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+>>>>>>> gh-pages
 
 </head>
 <body>
 
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<<<<<<< HEAD
     <div class="container">
+=======
+	<div class="container">
+>>>>>>> gh-pages
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -38,38 +72,65 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+<<<<<<< HEAD
             <a href="http://blog.ggshiney.com/" class="navbar-brand">
+=======
+            <a href="/" class="navbar-brand">
+>>>>>>> gh-pages
 ggshiney blog            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
+<<<<<<< HEAD
                          <li><a href="http://blog.ggshiney.com/pages/about.html">
+=======
+                         <li><a href="/pages/about.html">
+>>>>>>> gh-pages
                              About
                           </a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+<<<<<<< HEAD
                 <li><a href="http://blog.ggshiney.com/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+=======
+              <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+>>>>>>> gh-pages
             </ul>
         </div>
         <!-- /.navbar-collapse -->
     </div>
 </div> <!-- /.navbar -->
+<<<<<<< HEAD
 
+=======
+<!-- Banner -->
+<!-- End Banner -->
+>>>>>>> gh-pages
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
 
             <article>
+<<<<<<< HEAD
                 <h2><a href="http://blog.ggshiney.com/posts/2012/05/28/make-an-increasing-list-in-vim.html">Vim中构造递增序列</a></h2>
+=======
+                <h2><a href="/posts/2012/05/28/make-an-increasing-list-in-vim.html">Vim中构造递增序列</a></h2>
+>>>>>>> gh-pages
                 <div class="summary"><p>近日写爬虫遇到了个有趣的小需求：在构造初始URL列表的时候发现URL序列中的某个子串是个递增序列。上千行的数据自然不能手动一一键入，做为vim党首先要思考有没有什么简便的解决途径。</p>
 <h2>递增与递减</h2>
 <p>vim中有这样一对Key-map:<code>&lt;C-a&gt;</code>和<code>&lt;C-x&gt;</code>：<code>&lt;C-a&gt;</code>用于将下一个数字递增1，<code>&lt;C-x&gt;</code>用于将下一个数字递减1。</p>
 <p>与大多数的vim命令一样，键入数字后再接命令则表示重复执行多次该命令。比如<code>5&lt;C-a&gt;</code>将下一个数字递增5。</p>
 <h2>宏</h2>
 <p>vim的宏机制便于我们即时地创造、组合复杂的命令。</p>
+<<<<<<< HEAD
 <div class="highlight"><pre><span class="n">qa</span>
 <span class="o">%</span> <span class="k">do</span> <span class="n">something</span><span class="p">...</span> <span class="o">%</span>
 <span class="n">q</span>
+=======
+<div class="highlight"><pre>qa
+% <span class="k">do</span> something... %
+q
+>>>>>>> gh-pages
 </pre></div>
 
 
@@ -77,14 +138,21 @@ ggshiney blog            </a>
 <p>录制好后，按<code>@a</code>就开始执行<code>do something</code>的部分。</p>
 <h2>构造列表</h2>
 <p>例如有如下列表需要构造：</p>
+<<<<<<< HEAD
 <div class="highlight"><pre><span class="nl">http:</span><span class="c1">//www.a.com/blog.php?page=1</span>
 <span class="nl">http:</span><span class="c1">//www.a ...</span></pre></div>
                     <a class="btn btn-default btn-xs" href="http://blog.ggshiney.com/posts/2012/05/28/make-an-increasing-list-in-vim.html">more ...</a>
+=======
+<div class="highlight"><pre>http://www.a.com/blog.php?page<span class="o">=</span>1
+http://www.a ...</pre></div>
+                    <a class="btn btn-default btn-xs" href="/posts/2012/05/28/make-an-increasing-list-in-vim.html">more ...</a>
+>>>>>>> gh-pages
                 </div>
             </article>
             <hr/>
 
         </div>
+<<<<<<< HEAD
         <div class="col-sm-3 well well-sm" id="sidebar">
 
 <aside>
@@ -132,6 +200,26 @@ ggshiney blog            </a>
                         </li>
                     </ul>
                 </li>    
+=======
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+              <ul class="list-group" id="social">
+                <li class="list-group-item"><a href="http://twitter.com/ggshiney"><i class="fa fa-twitter-square fa-lg"></i> twitter</a></li>
+                <li class="list-group-item"><a href="http://github.com/ggshiney"><i class="fa fa-github-square fa-lg"></i> github</a></li>
+              </ul>
+            </li>
+
+
+
+            <li class="list-group-item"><a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group " id="tags">
+                </ul>
+            </li>
+>>>>>>> gh-pages
     <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
       <ul class="list-group" id="links">
         <li class="list-group-item">
@@ -151,11 +239,18 @@ ggshiney blog            </a>
         </li>
       </ul>
     </li>
+<<<<<<< HEAD
 
         </ul>
     </section>
 
 </aside>        </div>
+=======
+    </ul>
+</section>
+            </aside>
+        </div>
+>>>>>>> gh-pages
     </div>
 </div>
 <footer>
@@ -170,6 +265,7 @@ ggshiney blog            </a>
       </div>
    </div>
 </footer>
+<<<<<<< HEAD
 <script src="http://code.jquery.com/jquery.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -177,6 +273,16 @@ ggshiney blog            </a>
 
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
 <script src="http://blog.ggshiney.com/theme/js/respond.min.js"></script>
+=======
+<script src="/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+>>>>>>> gh-pages
 
 </body>
 </html>

@@ -1,13 +1,19 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
+=======
+<html lang="zh"
+>
+>>>>>>> gh-pages
 <head>
     <title>Arch Linux配置双屏 - ggshiney blog</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     
 
     <!-- Open Graph tags -->
@@ -25,12 +31,45 @@
 
         <link href="http://blog.ggshiney.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
               title="ggshiney blog ATOM Feed"/>
+=======
+
+
+
+<link rel="canonical" href="/posts/2012/11/14/config-dual-monitor-for-archlinux.html">
+
+        <meta name="author" content="ggshiney" />
+        <meta name="keywords" content="ArchLinux" />
+        <meta name="description" content="前言 实验室设备更新，捡来块有VGA+DVI双接口的Nvdia显卡。自己的老机器用的是集成显卡，便打算给自己的机器升级配置双显示屏。 配置双屏显示 安装新显卡 现在的显卡都是PCI-E接口的了。尽管PCI-E接口的显卡设备即插即用，但是仍需要在BIOS配置一下主显示设备。 顺道科普了一下BIOS中有关显卡的选项： IGD(Integrated Graphic Device): 集成显卡 PCI(Peripheral Component Interconnect): PCI显卡 PEG(PCI Express Graphics): PCI-E显卡 那就选择以PEG为主显示设备。 驱动 我的ArchLinux已经配置了xfce桌面环境，先装个NVIDIA驱动。 ArchLinux中列出所有的PCI设备： lspci 看到硕大的NVIDIA，确认是Nvdia的显卡，接着找找驱动。ArchLinux中的显卡驱动都是以xf86-video开头的。 pacman -Ss xf86-video 发现xf86-video-nouveau是N卡的驱动，安装之。 pacman -S xf86-video-nouveau 配置双屏显示 ..." />
+
+        <meta property="og:site_name" content="ggshiney blog" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Arch Linux配置双屏"/>
+        <meta property="og:url" content="/posts/2012/11/14/config-dual-monitor-for-archlinux.html"/>
+        <meta property="og:description" content="前言 实验室设备更新，捡来块有VGA+DVI双接口的Nvdia显卡。自己的老机器用的是集成显卡，便打算给自己的机器升级配置双显示屏。 配置双屏显示 安装新显卡 现在的显卡都是PCI-E接口的了。尽管PCI-E接口的显卡设备即插即用，但是仍需要在BIOS配置一下主显示设备。 顺道科普了一下BIOS中有关显卡的选项： IGD(Integrated Graphic Device): 集成显卡 PCI(Peripheral Component Interconnect): PCI显卡 PEG(PCI Express Graphics): PCI-E显卡 那就选择以PEG为主显示设备。 驱动 我的ArchLinux已经配置了xfce桌面环境，先装个NVIDIA驱动。 ArchLinux中列出所有的PCI设备： lspci 看到硕大的NVIDIA，确认是Nvdia的显卡，接着找找驱动。ArchLinux中的显卡驱动都是以xf86-video开头的。 pacman -Ss xf86-video 发现xf86-video-nouveau是N卡的驱动，安装之。 pacman -S xf86-video-nouveau 配置双屏显示 ..."/>
+        <meta property="article:published_time" content="2012-11-14" />
+            <meta property="article:section" content="Walkthrough" />
+            <meta property="article:tag" content="ArchLinux" />
+            <meta property="article:author" content="ggshiney" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+>>>>>>> gh-pages
 
 </head>
 <body>
 
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<<<<<<< HEAD
     <div class="container">
+=======
+	<div class="container">
+>>>>>>> gh-pages
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -38,23 +77,40 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+<<<<<<< HEAD
             <a href="http://blog.ggshiney.com/" class="navbar-brand">
+=======
+            <a href="/" class="navbar-brand">
+>>>>>>> gh-pages
 ggshiney blog            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
+<<<<<<< HEAD
                          <li><a href="http://blog.ggshiney.com/pages/about.html">
+=======
+                         <li><a href="/pages/about.html">
+>>>>>>> gh-pages
                              About
                           </a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+<<<<<<< HEAD
                 <li><a href="http://blog.ggshiney.com/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+=======
+              <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+>>>>>>> gh-pages
             </ul>
         </div>
         <!-- /.navbar-collapse -->
     </div>
 </div> <!-- /.navbar -->
+<<<<<<< HEAD
 
+=======
+<!-- Banner -->
+<!-- End Banner -->
+>>>>>>> gh-pages
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
@@ -63,7 +119,11 @@ ggshiney blog            </a>
         <article>
             <header class="page-header">
                 <h1>
+<<<<<<< HEAD
                     <a href="http://blog.ggshiney.com/posts/2012/11/14/config-dual-monitor-for-archlinux.html"
+=======
+                    <a href="/posts/2012/11/14/config-dual-monitor-for-archlinux.html"
+>>>>>>> gh-pages
                        rel="bookmark"
                        title="Permalink to Arch Linux配置双屏">
                         Arch Linux配置双屏
@@ -76,13 +136,21 @@ ggshiney blog            </a>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
+<<<<<<< HEAD
         <i class="fa fa-calendar"></i><time datetime="2012-11-14T20:27:19"> Wed 14 November 2012</time>
+=======
+        <i class="fa fa-calendar"></i><time datetime="2012-11-14T20:27:19+08:00"> 三 14 十一月 2012</time>
+>>>>>>> gh-pages
     </span>
 
 
 
 <span class="label label-default">Tags</span>
+<<<<<<< HEAD
 	<a href="http://blog.ggshiney.com/tag/archlinux.html">ArchLinux</a>
+=======
+	<a href="/tag/archlinux.html">ArchLinux</a>
+>>>>>>> gh-pages
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
@@ -101,17 +169,29 @@ ggshiney blog            </a>
 <h3>驱动</h3>
 <p>我的ArchLinux已经配置了xfce桌面环境，先装个NVIDIA驱动。</p>
 <p>ArchLinux中列出所有的PCI设备：</p>
+<<<<<<< HEAD
 <div class="highlight"><pre><span class="n">lspci</span>
+=======
+<div class="highlight"><pre>lspci
+>>>>>>> gh-pages
 </pre></div>
 
 
 <p>看到硕大的NVIDIA，确认是Nvdia的显卡，接着找找驱动。ArchLinux中的显卡驱动都是以<code>xf86-video</code>开头的。</p>
+<<<<<<< HEAD
 <div class="highlight"><pre><span class="n">pacman</span> <span class="o">-</span><span class="n">Ss</span> <span class="n">xf86</span><span class="o">-</span><span class="n">video</span>
+=======
+<div class="highlight"><pre>pacman -Ss xf86-video
+>>>>>>> gh-pages
 </pre></div>
 
 
 <p>发现<code>xf86-video-nouveau</code>是N卡的驱动，安装之。</p>
+<<<<<<< HEAD
 <div class="highlight"><pre><span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="n">xf86</span><span class="o">-</span><span class="n">video</span><span class="o">-</span><span class="n">nouveau</span>
+=======
+<div class="highlight"><pre>pacman -S xf86-video-nouveau
+>>>>>>> gh-pages
 </pre></div>
 
 
@@ -119,11 +199,16 @@ ggshiney blog            </a>
 <p>一切就绪后两个显示器显示相同，如果需要扩展显示桌面，还需要进行一番配置。</p>
 <p><code>randr</code>(X Resize, Rotate and Reflect Extension)可以控制桌面的显示输出效果，如镜像、旋转等。<code>xrandr</code>是<code>randr</code>的命令行接口。</p>
 <p>首先查看当前显示状态，列出X显示设备：</p>
+<<<<<<< HEAD
 <div class="highlight"><pre><span class="n">xrandr</span> <span class="o">-</span><span class="n">q</span>
+=======
+<div class="highlight"><pre>xrandr -q
+>>>>>>> gh-pages
 </pre></div>
 
 
 <p>输出如下</p>
+<<<<<<< HEAD
 <div class="highlight"><pre><span class="n">Screen</span> <span class="mi">0</span><span class="o">:</span> <span class="n">minimum</span> <span class="mi">320</span> <span class="n">x</span> <span class="mi">200</span><span class="p">,</span> <span class="n">current</span> <span class="mi">2880</span> <span class="n">x</span> <span class="mi">900</span><span class="p">,</span> <span class="n">maximum</span> <span class="mi">8192</span> <span class="n">x</span> <span class="mi">8192</span>
 <span class="n">VGA</span><span class="o">-</span><span class="mi">1</span> <span class="n">connected</span> <span class="mi">1440</span><span class="n">x900</span><span class="o">+</span><span class="mi">1440</span><span class="o">+</span><span class="mi">0</span> <span class="p">(</span><span class="n">normal</span> <span class="n">left</span> <span class="n">inverted</span> <span class="n">right</span> <span class="n">x</span> <span class="n">axis</span> <span class="n">y</span> <span class="n">axis</span><span class="p">)</span> <span class="mi">408</span><span class="n">mm</span> <span class="n">x</span> <span class="mi">255</span><span class="n">mm</span>
    <span class="mi">1440</span><span class="n">x900</span>       <span class="mf">59.9</span><span class="o">*+</span>   <span class="mf">75.0</span>  
@@ -157,11 +242,50 @@ ggshiney blog            </a>
    <span class="mi">848</span><span class="n">x480</span>        <span class="mf">60.0</span>  
    <span class="mi">640</span><span class="n">x480</span>        <span class="mf">72.8</span>     <span class="mf">75.0</span>     <span class="mf">66.7</span>     <span class="mf">60.0</span>  
    <span class="mi">720</span><span class="n">x400</span>        <span class="mf">70.1</span>
+=======
+<div class="highlight"><pre>Screen 0: minimum 320 x 200, current 2880 x 900, maximum 8192 x 8192
+VGA-1 connected 1440x900+1440+0 (normal left inverted right x axis y axis) 408mm x 255mm
+   1440x900       59.9*+   75.0  
+   1280x1024      75.0     70.0     60.0  
+   1280x960       60.0  
+   1366x768       60.0  
+   1360x768       60.0  
+   1280x800       74.9     59.8  
+   1152x864       75.0  
+   1280x768       74.9     59.9  
+   1024x768       75.1     70.1     60.0  
+   1024x576       60.0  
+   832x624        74.6  
+   800x600        72.2     75.0     60.3     56.2  
+   848x480        60.0  
+   640x480        72.8     75.0     66.7     60.0  
+   720x400        70.1  
+DVI-I-1 connected 1440x900+0+0 (normal left inverted right x axis y axis) 408mm x 255mm
+   1440x900       59.9*+   75.0  
+   1280x1024      75.0     70.0     60.0  
+   1280x960       60.0  
+   1366x768       60.0  
+   1360x768       60.0  
+   1280x800       74.9     59.8  
+   1152x864       75.0  
+   1280x768       74.9     59.9  
+   1024x768       75.1     70.1     60.0  
+   1024x576       60.0  
+   832x624        74.6  
+   800x600        72.2     75.0     60.3     56.2  
+   848x480        60.0  
+   640x480        72.8     75.0     66.7     60.0  
+   720x400        70.1
+>>>>>>> gh-pages
 </pre></div>
 
 
 <p>看到我的两个显示器对应着<code>VGA-1</code>和<code>DVI-I-1</code>，接下来设置两个显示器位置</p>
+<<<<<<< HEAD
 <div class="highlight"><pre><span class="n">xrandr</span> <span class="o">--</span><span class="n">output</span> <span class="n">DVI</span><span class="o">-</span><span class="n">I</span><span class="o">-</span><span class="mi">1</span> <span class="o">--</span><span class="k">auto</span> <span class="o">--</span><span class="n">output</span> <span class="n">VGA</span><span class="o">-</span><span class="mi">1</span> <span class="o">--</span><span class="k">auto</span> <span class="o">--</span><span class="n">right</span><span class="o">-</span><span class="n">of</span> <span class="n">DVI</span><span class="o">-</span><span class="n">I</span><span class="o">-</span><span class="mi">1</span>
+=======
+<div class="highlight"><pre>xrandr --output DVI-I-1 --auto --output VGA-1 --auto --right-of DVI-I-1
+>>>>>>> gh-pages
 </pre></div>
 
 
@@ -169,6 +293,7 @@ ggshiney blog            </a>
 <p>~~可以把这条命令通过 <code>Settings Manager</code> =&gt; <code>Sessioin and Startup</code> =&gt;  <code>Application Autostart</code> 加入到xfce的自动启动列表中。~~</p>
 <p>上面加入xfce自动启动列表后在系统重启后出现花屏。</p>
 <p>可以把预览好位置的配置加入配置文件<code>/etc/X11/xorg.conf</code>，以实现自动启动。</p>
+<<<<<<< HEAD
 <div class="highlight"><pre><span class="n">Section</span> <span class="s">&quot;Monitor&quot;</span>
     <span class="n">Identifier</span>  <span class="s">&quot;VGA-1&quot;</span>
     <span class="n">Option</span>      <span class="s">&quot;Primary&quot;</span> <span class="s">&quot;true&quot;</span>
@@ -178,6 +303,17 @@ ggshiney blog            </a>
     <span class="n">Identifier</span>  <span class="s">&quot;DVI-I-1&quot;</span>
     <span class="n">Option</span>      <span class="s">&quot;RightOf&quot;</span> <span class="s">&quot;VGA-1&quot;</span>
 <span class="n">EndSection</span>
+=======
+<div class="highlight"><pre>Section &quot;Monitor&quot;
+    Identifier  &quot;VGA-1&quot;
+    Option      &quot;Primary&quot; &quot;true&quot;
+EndSection
+
+Section &quot;Monitor&quot;
+    Identifier  &quot;DVI-I-1&quot;
+    Option      &quot;RightOf&quot; &quot;VGA-1&quot;
+EndSection
+>>>>>>> gh-pages
 </pre></div>
 
 
@@ -190,6 +326,7 @@ ggshiney blog            </a>
     </section>
 
         </div>
+<<<<<<< HEAD
         <div class="col-sm-3 well well-sm" id="sidebar">
 
 <aside>
@@ -237,6 +374,26 @@ ggshiney blog            </a>
                         </li>
                     </ul>
                 </li>    
+=======
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+              <ul class="list-group" id="social">
+                <li class="list-group-item"><a href="http://twitter.com/ggshiney"><i class="fa fa-twitter-square fa-lg"></i> twitter</a></li>
+                <li class="list-group-item"><a href="http://github.com/ggshiney"><i class="fa fa-github-square fa-lg"></i> github</a></li>
+              </ul>
+            </li>
+
+
+
+            <li class="list-group-item"><a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group " id="tags">
+                </ul>
+            </li>
+>>>>>>> gh-pages
     <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
       <ul class="list-group" id="links">
         <li class="list-group-item">
@@ -256,18 +413,29 @@ ggshiney blog            </a>
         </li>
       </ul>
     </li>
+<<<<<<< HEAD
 
         </ul>
     </section>
 
 </aside>        </div>
+=======
+    </ul>
+</section>
+            </aside>
+        </div>
+>>>>>>> gh-pages
     </div>
 </div>
 <footer>
    <div class="container">
       <hr>
       <div class="row">
+<<<<<<< HEAD
          <div class="col-xs-10">&copy; 2013 ggshiney
+=======
+         <div class="col-xs-10">&copy; 2015 ggshiney
+>>>>>>> gh-pages
             &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
@@ -275,6 +443,7 @@ ggshiney blog            </a>
       </div>
    </div>
 </footer>
+<<<<<<< HEAD
 <script src="http://code.jquery.com/jquery.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -282,6 +451,16 @@ ggshiney blog            </a>
 
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
 <script src="http://blog.ggshiney.com/theme/js/respond.min.js"></script>
+=======
+<script src="/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+>>>>>>> gh-pages
 
 </body>
 </html>

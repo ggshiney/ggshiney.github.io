@@ -1,24 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <feed xmlns="http://www.w3.org/2005/Atom"><title>ggshiney blog</title><link href="http://blog.ggshiney.com/" rel="alternate"></link><link href="http://blog.ggshiney.com/feeds/all.atom.xml" rel="self"></link><id>http://blog.ggshiney.com/</id><updated>2013-05-13T18:20:12+08:00</updated><entry><title>Ubuntu配置PPTP VPN</title><link href="http://blog.ggshiney.com/posts/2013/05/13/pptp-vpn-on-ubuntu.html" rel="alternate"></link><updated>2013-05-13T18:20:12+08:00</updated><author><name>ggshiney</name></author><id>tag:blog.ggshiney.com,2013-05-13:posts/2013/05/13/pptp-vpn-on-ubuntu.html</id><summary type="html">&lt;p&gt;接手一台新服务器，简单记录一下pptp vpn加ufw防火墙在ubuntu上的设置。
+=======
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ggshiney blog</title><link href="http://blog.ggshiney.com/" rel="alternate"></link><link href="http://blog.ggshiney.com/feeds/all.atom.xml" rel="self"></link><id>http://blog.ggshiney.com/</id><updated>2015-07-19T21:34:55+08:00</updated><entry><title>Resurrection for this Blog</title><link href="http://blog.ggshiney.com/posts/2015/07/19/resurrection-for-this-blog.html" rel="alternate"></link><updated>2015-07-19T21:34:55+08:00</updated><author><name>ggshiney</name></author><id>tag:blog.ggshiney.com,2015-07-19:posts/2015/07/19/resurrection-for-this-blog.html</id><summary type="html">&lt;p&gt;翻阅了一下，上次Blog写作还要追溯到近2年前，期间由于毕业求职繁忙就将Blog搁置了。
+每年域名续费而不善加利用，想想就此荒废了未免可惜，现在重新拾起。
+希望平时多记录一些学习心得与工作中的思考。&lt;/p&gt;
+&lt;p&gt;说到Blog，目前写作这篇文章时Blog是采用&lt;a href="https://pages.github.com/"&gt;Github Pages&lt;/a&gt;服务托管的静态页面。
+曾几何时，基于&lt;a href="http://jekyllrb.com/"&gt;Jekyll&lt;/a&gt;渲染生成静态Html的Blog风靡一时，而&lt;a href="http://octopress.org/"&gt;Octopress&lt;/a&gt;封装简洁的模版，便捷的部署工具，方便的命令行工具链，更使得码农阶层搭建一个静态博客站点称为了一种时尚。
+回顾一下个人网站的发展历程，从早期CS学术圈子的大白纸静态网页，到Wordpress动态Blog热潮，如今似乎又回归了静态页面的本源。
+这里不深入探究网页服务技术的发展历程，单单从这个轮回本身看，确实是一个有意思的现象。
+我的这个Blog也是搭乘了那时的&lt;a href="http://jekyllrb.com/"&gt;Jekyll&lt;/a&gt;热潮。
+怎奈作为Python党的一员，一直对基于Ruby的Jekyll-Octopress心存怨念，所幸发现了&lt;a href="http://blog.getpelican.com/"&gt;pelican&lt;/a&gt;这个python替代品。
+此后我的Blog便一直是pelican渲染生成与维护的。广大前端工程师如今也有了自己的Octopress: &lt;a href="http://hexo.io/"&gt;hexo&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;当然 ，其实世界远比想象得大，比如参看以下这个&lt;a href="https://staticsitegenerators.net/"&gt;https://staticsitegenerators.net/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这篇文章作为Blog重启后的第一篇，抛砖引玉，希望之后坚持写作习惯。&lt;/p&gt;</summary></entry><entry><title>Ubuntu配置PPTP VPN</title><link href="http://blog.ggshiney.com/posts/2013/05/13/pptp-vpn-on-ubuntu.html" rel="alternate"></link><updated>2013-05-13T18:20:12+08:00</updated><author><name>ggshiney</name></author><id>tag:blog.ggshiney.com,2013-05-13:posts/2013/05/13/pptp-vpn-on-ubuntu.html</id><summary type="html">&lt;p&gt;接手一台新服务器，简单记录一下pptp vpn加ufw防火墙在ubuntu上的设置。
+>>>>>>> gh-pages
 这样学校范围内就能实现手机通过vpn免费上网了。
 同样，在校外也可以通过vpn访问校园网资源。&lt;/p&gt;
 &lt;h2&gt;配置PPTP&lt;/h2&gt;
 &lt;p&gt;安装pptpd软件包：&lt;/p&gt;
+<<<<<<< HEAD
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;pptpd&lt;/span&gt;
+=======
+&lt;div class="highlight"&gt;&lt;pre&gt;apt-get install pptpd
+>>>>>>> gh-pages
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;编辑&lt;code&gt;/etc/pptpd.conf&lt;/code&gt;配置文件：
 修改其中的localip为pptp服务端的vpn网关ip，remoteip为pptp客户端分配的ip地址范围。&lt;/p&gt;
+<<<<<<< HEAD
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;localip&lt;/span&gt; &lt;span class="mf"&gt;192.168.100.1&lt;/span&gt;
 &lt;span class="n"&gt;remoteip&lt;/span&gt; &lt;span class="mf"&gt;192.168.100.101&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;110&lt;/span&gt;
+=======
+&lt;div class="highlight"&gt;&lt;pre&gt;localip 192.168.100.1
+remoteip 192.168.100.101-110
+>>>>>>> gh-pages
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;编辑&lt;code&gt;/etc/ppp/pptpd-options&lt;/code&gt;：
 修改ms-dns字段，当使用windows pptp客户端时获取的DNS。
 其实我只为了服务一台iphone，这里并不需要设置。&lt;/p&gt;
+<<<<<<< HEAD
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ms&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dns&lt;/span&gt; &lt;span class="mf"&gt;114.114.114.114&lt;/span&gt;
+=======
+&lt;div class="highlight"&gt;&lt;pre&gt;ms-dns 114.114.114.114
+>>>>>>> gh-pages
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -26,29 +54,49 @@
 对应的四个字段为客户端连接时使用的用户名、服务、密码、ip。
 服务名对应&lt;code&gt;pptpd-options&lt;/code&gt;中的对应字段值，如默认则为&lt;code&gt;pptpd&lt;/code&gt;。
 ip地址设置&lt;code&gt;*&lt;/code&gt;为允许任意来源。&lt;/p&gt;
+<<<<<<< HEAD
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;USERNAME&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;    &lt;span class="n"&gt;pptpd&lt;/span&gt;    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;PASSWORD&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;    &lt;span class="o"&gt;*&lt;/span&gt;
+=======
+&lt;div class="highlight"&gt;&lt;pre&gt;[USERNAME]    pptpd    [PASSWORD]    *
+>>>>>>> gh-pages
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;编辑&lt;code&gt;/etc/sysctl.conf&lt;/code&gt;：开启路由转发。&lt;/p&gt;
+<<<<<<< HEAD
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;net&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ipv4&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ip_forward&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+=======
+&lt;div class="highlight"&gt;&lt;pre&gt;net.ipv4.ip_forward=1
+>>>>>>> gh-pages
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;通过如下命令使之生效：&lt;/p&gt;
+<<<<<<< HEAD
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;sysctl&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;
+=======
+&lt;div class="highlight"&gt;&lt;pre&gt;sysctl -p
+>>>>>>> gh-pages
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;重启&lt;code&gt;pptpd&lt;/code&gt;服务：&lt;/p&gt;
+<<<<<<< HEAD
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;service&lt;/span&gt; &lt;span class="n"&gt;pptpd&lt;/span&gt; &lt;span class="n"&gt;restart&lt;/span&gt;
+=======
+&lt;div class="highlight"&gt;&lt;pre&gt;service pptpd restart
+>>>>>>> gh-pages
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;如果不配置ufw防火墙的话，至此即可实现vpn认证连接。
 如需要实现vpn上网，仍需要设置iptables：(如后面配置ufw则不用这一步)
 其中&lt;code&gt;-s&lt;/code&gt;指定的来源地址对应&lt;code&gt;/etc/pptpd.conf&lt;/code&gt;中的ip网段。&lt;/p&gt;
+<<<<<<< HEAD
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;iptables&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;nat&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="n"&gt;POSTROUTING&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="mf"&gt;192.168.100.0&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;24&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="n"&gt;eth0&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="n"&gt;MASQUERADE&lt;/span&gt;
+=======
+&lt;div class="highlight"&gt;&lt;pre&gt;iptables -t nat -A POSTROUTING -s 192.168.100.0/24 -o eth0 -j MASQUERADE
+>>>>>>> gh-pages
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -57,38 +105,67 @@ ip地址设置&lt;code&gt;*&lt;/code&gt;为允许任意来源。&lt;/p&gt;
 &lt;p&gt;编辑&lt;code&gt;/etc/netword/interfaces&lt;/code&gt;：
 设置eth0的ip别名：
 address对应&lt;code&gt;/etc/pptpd.conf&lt;/code&gt;中的设置。&lt;/p&gt;
+<<<<<<< HEAD
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;auto&lt;/span&gt; &lt;span class="n"&gt;eth0&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
 &lt;span class="n"&gt;iface&lt;/span&gt; &lt;span class="n"&gt;eth0&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;inet&lt;/span&gt; &lt;span class="k"&gt;static&lt;/span&gt;
 &lt;span class="n"&gt;address&lt;/span&gt; &lt;span class="mf"&gt;192.168.100.1&lt;/span&gt;
 &lt;span class="n"&gt;netmask&lt;/span&gt; &lt;span class="mf"&gt;255.255.255.0&lt;/span&gt;
+=======
+&lt;div class="highlight"&gt;&lt;pre&gt;auto eth0:0
+iface eth0:0 inet static
+address 192.168.100.1
+netmask 255.255.255.0
+>>>>>>> gh-pages
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;编辑&lt;code&gt;/etc/default/ufw&lt;/code&gt;：
 修改&lt;code&gt;DEFAULT_FORWARD_POLICY&lt;/code&gt;字段为&lt;code&gt;ACCEPT&lt;/code&gt;。&lt;/p&gt;
+<<<<<<< HEAD
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;DEFAULT_FORWARD_POLICY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;“&lt;/span&gt;&lt;span class="n"&gt;ACCEPT&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;
+=======
+&lt;div class="highlight"&gt;&lt;pre&gt;DEFAULT_FORWARD_POLICY=“ACCEPT”
+>>>>>>> gh-pages
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;编辑&lt;code&gt;/etc/ufw/before.rules&lt;/code&gt;：
 加入如下内容至&lt;code&gt;*filter&lt;/code&gt;规则前，通过iptables实现转发。&lt;/p&gt;
+<<<<<<< HEAD
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;nat&lt;/span&gt;
 &lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;POSTROUTING&lt;/span&gt; &lt;span class="n"&gt;ACCEPT&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="n"&gt;POSTROUTING&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="mf"&gt;192.168.2.0&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;24&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="n"&gt;eth0&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="n"&gt;MASQUERADE&lt;/span&gt;
 
 &lt;span class="n"&gt;COMMIT&lt;/span&gt;
+=======
+&lt;div class="highlight"&gt;&lt;pre&gt;*nat
+:POSTROUTING ACCEPT [0:0]
+-A POSTROUTING -s 192.168.2.0/24 -o eth0 -j MASQUERADE
+
+COMMIT
+>>>>>>> gh-pages
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;ufw中加入允许pptp默认的1723端口：&lt;/p&gt;
+<<<<<<< HEAD
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ufw&lt;/span&gt; &lt;span class="n"&gt;allow&lt;/span&gt; &lt;span class="mi"&gt;1723&lt;/span&gt;
+=======
+&lt;div class="highlight"&gt;&lt;pre&gt;ufw allow 1723
+>>>>>>> gh-pages
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;最后重启服务：&lt;/p&gt;
+<<<<<<< HEAD
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;service&lt;/span&gt; &lt;span class="n"&gt;networking&lt;/span&gt; &lt;span class="n"&gt;restart&lt;/span&gt;
 &lt;span class="n"&gt;service&lt;/span&gt; &lt;span class="n"&gt;ufw&lt;/span&gt; &lt;span class="n"&gt;restart&lt;/span&gt;
 &lt;span class="n"&gt;service&lt;/span&gt; &lt;span class="n"&gt;pptpd&lt;/span&gt; &lt;span class="n"&gt;restart&lt;/span&gt;
+=======
+&lt;div class="highlight"&gt;&lt;pre&gt;service networking restart
+service ufw restart
+service pptpd restart
+>>>>>>> gh-pages
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -100,24 +177,41 @@ address对应&lt;code&gt;/etc/pptpd.conf&lt;/code&gt;中的设置。&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.cups.org"&gt;CUPS&lt;/a&gt;(Common UNIX Printing System)，是Apple开发的一套UNIX开源打印系统。
 Arch下可可以通过&lt;code&gt;CUPS&lt;/code&gt;进行打印管理。&lt;/p&gt;
 &lt;p&gt;安装&lt;code&gt;CUPS&lt;/code&gt;很简单：&lt;/p&gt;
+<<<<<<< HEAD
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;pacman&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;S&lt;/span&gt; &lt;span class="n"&gt;cups&lt;/span&gt; &lt;span class="n"&gt;libcups&lt;/span&gt;
+=======
+&lt;div class="highlight"&gt;&lt;pre&gt;pacman -S cups libcups
+>>>>>>> gh-pages
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;code&gt;CPUS&lt;/code&gt;安装好后，需要根据打印机安装相应的driver。
 我们的HP打印机对应的驱动包&lt;code&gt;hplip&lt;/code&gt;，所有的HP打印机都可以使用：&lt;/p&gt;
+<<<<<<< HEAD
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;pacman&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;S&lt;/span&gt; &lt;span class="n"&gt;hplip&lt;/span&gt;
+=======
+&lt;div class="highlight"&gt;&lt;pre&gt;pacman -S hplip
+>>>>>>> gh-pages
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;之后启动&lt;code&gt;CUPS&lt;/code&gt;守护进程，并把&lt;code&gt;CUPS&lt;/code&gt;加入启动服务。&lt;/p&gt;
+<<<<<<< HEAD
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;systemctl&lt;/span&gt; &lt;span class="n"&gt;start&lt;/span&gt; &lt;span class="n"&gt;cups&lt;/span&gt;
 &lt;span class="n"&gt;systemctl&lt;/span&gt; &lt;span class="n"&gt;enable&lt;/span&gt; &lt;span class="n"&gt;cups&lt;/span&gt;
+=======
+&lt;div class="highlight"&gt;&lt;pre&gt;systemctl start cups
+systemctl enable cups
+>>>>>>> gh-pages
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;code&gt;CUPS&lt;/code&gt;的基本管理功能通过本地web页面进行操作，需要前用户在&lt;code&gt;sys&lt;/code&gt;组，在这里临时把当前用户加入&lt;code&gt;sys&lt;/code&gt;：&lt;/p&gt;
+<<<<<<< HEAD
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;usermod&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;aG&lt;/span&gt; &lt;span class="n"&gt;sys&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;USERNAME&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+=======
+&lt;div class="highlight"&gt;&lt;pre&gt;usermod -aG sys [USERNAME]
+>>>>>>> gh-pages
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -132,15 +226,26 @@ Arch下可可以通过&lt;code&gt;CUPS&lt;/code&gt;进行打印管理。&lt;/p&g
 &lt;h2&gt;解决之道&lt;/h2&gt;
 &lt;p&gt;既然是扩展属性，总是有方法去掉的。&lt;/p&gt;
 &lt;p&gt;mac提供了&lt;code&gt;xattr&lt;/code&gt;进行扩展属性操作。可以先通过&lt;code&gt;ls -l@&lt;/code&gt;，增加一个&lt;code&gt;@&lt;/code&gt;参数查看文件有那些扩展属性。&lt;/p&gt;
+<<<<<<< HEAD
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ls&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;l&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt; &lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt;
 
 &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;rw&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;  &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;user&lt;/span&gt;  &lt;span class="n"&gt;staff&lt;/span&gt;    &lt;span class="mi"&gt;512&lt;/span&gt;  &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt; &lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt;
     &lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apple&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TextEncoding&lt;/span&gt;      &lt;span class="mi"&gt;15&lt;/span&gt;
+=======
+&lt;div class="highlight"&gt;&lt;pre&gt;ls -l@ filename.test
+
+-rw-r--r--@  1 user  staff    512  1 1 20:20 filename.test
+    com.apple.TextEncoding      15
+>>>>>>> gh-pages
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;之后可以用&lt;code&gt;xattr&lt;/code&gt;删除之：&lt;/p&gt;
+<<<<<<< HEAD
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;xattr&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apple&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TextEncoding&lt;/span&gt; &lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt;
+=======
+&lt;div class="highlight"&gt;&lt;pre&gt;xattr -d com.apple.TextEncoding filename.test
+>>>>>>> gh-pages
 &lt;/pre&gt;&lt;/div&gt;</summary><category term="Mac OS"></category></entry><entry><title>Arch Linux配置双屏</title><link href="http://blog.ggshiney.com/posts/2012/11/14/config-dual-monitor-for-archlinux.html" rel="alternate"></link><updated>2012-11-14T20:27:19+08:00</updated><author><name>ggshiney</name></author><id>tag:blog.ggshiney.com,2012-11-14:posts/2012/11/14/config-dual-monitor-for-archlinux.html</id><summary type="html">&lt;h2&gt;前言&lt;/h2&gt;
 &lt;p&gt;实验室设备更新，捡来块有VGA+DVI双接口的Nvdia显卡。自己的老机器用的是集成显卡，便打算给自己的机器升级配置双显示屏。&lt;/p&gt;
 &lt;h2&gt;配置双屏显示&lt;/h2&gt;
@@ -156,17 +261,29 @@ Arch下可可以通过&lt;code&gt;CUPS&lt;/code&gt;进行打印管理。&lt;/p&g
 &lt;h3&gt;驱动&lt;/h3&gt;
 &lt;p&gt;我的ArchLinux已经配置了xfce桌面环境，先装个NVIDIA驱动。&lt;/p&gt;
 &lt;p&gt;ArchLinux中列出所有的PCI设备：&lt;/p&gt;
+<<<<<<< HEAD
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;lspci&lt;/span&gt;
+=======
+&lt;div class="highlight"&gt;&lt;pre&gt;lspci
+>>>>>>> gh-pages
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;看到硕大的NVIDIA，确认是Nvdia的显卡，接着找找驱动。ArchLinux中的显卡驱动都是以&lt;code&gt;xf86-video&lt;/code&gt;开头的。&lt;/p&gt;
+<<<<<<< HEAD
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;pacman&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Ss&lt;/span&gt; &lt;span class="n"&gt;xf86&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;video&lt;/span&gt;
+=======
+&lt;div class="highlight"&gt;&lt;pre&gt;pacman -Ss xf86-video
+>>>>>>> gh-pages
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;发现&lt;code&gt;xf86-video-nouveau&lt;/code&gt;是N卡的驱动，安装之。&lt;/p&gt;
+<<<<<<< HEAD
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;pacman&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;S&lt;/span&gt; &lt;span class="n"&gt;xf86&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;video&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;nouveau&lt;/span&gt;
+=======
+&lt;div class="highlight"&gt;&lt;pre&gt;pacman -S xf86-video-nouveau
+>>>>>>> gh-pages
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -174,11 +291,16 @@ Arch下可可以通过&lt;code&gt;CUPS&lt;/code&gt;进行打印管理。&lt;/p&g
 &lt;p&gt;一切就绪后两个显示器显示相同，如果需要扩展显示桌面，还需要进行一番配置。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;randr&lt;/code&gt;(X Resize, Rotate and Reflect Extension)可以控制桌面的显示输出效果，如镜像、旋转等。&lt;code&gt;xrandr&lt;/code&gt;是&lt;code&gt;randr&lt;/code&gt;的命令行接口。&lt;/p&gt;
 &lt;p&gt;首先查看当前显示状态，列出X显示设备：&lt;/p&gt;
+<<<<<<< HEAD
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;xrandr&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;q&lt;/span&gt;
+=======
+&lt;div class="highlight"&gt;&lt;pre&gt;xrandr -q
+>>>>>>> gh-pages
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;输出如下&lt;/p&gt;
+<<<<<<< HEAD
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Screen&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;minimum&lt;/span&gt; &lt;span class="mi"&gt;320&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;current&lt;/span&gt; &lt;span class="mi"&gt;2880&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="mi"&gt;900&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;maximum&lt;/span&gt; &lt;span class="mi"&gt;8192&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="mi"&gt;8192&lt;/span&gt;
 &lt;span class="n"&gt;VGA&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;connected&lt;/span&gt; &lt;span class="mi"&gt;1440&lt;/span&gt;&lt;span class="n"&gt;x900&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1440&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;normal&lt;/span&gt; &lt;span class="n"&gt;left&lt;/span&gt; &lt;span class="n"&gt;inverted&lt;/span&gt; &lt;span class="n"&gt;right&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="n"&gt;axis&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="mi"&gt;408&lt;/span&gt;&lt;span class="n"&gt;mm&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="n"&gt;mm&lt;/span&gt;
    &lt;span class="mi"&gt;1440&lt;/span&gt;&lt;span class="n"&gt;x900&lt;/span&gt;       &lt;span class="mf"&gt;59.9&lt;/span&gt;&lt;span class="o"&gt;*+&lt;/span&gt;   &lt;span class="mf"&gt;75.0&lt;/span&gt;  
@@ -212,11 +334,50 @@ Arch下可可以通过&lt;code&gt;CUPS&lt;/code&gt;进行打印管理。&lt;/p&g
    &lt;span class="mi"&gt;848&lt;/span&gt;&lt;span class="n"&gt;x480&lt;/span&gt;        &lt;span class="mf"&gt;60.0&lt;/span&gt;  
    &lt;span class="mi"&gt;640&lt;/span&gt;&lt;span class="n"&gt;x480&lt;/span&gt;        &lt;span class="mf"&gt;72.8&lt;/span&gt;     &lt;span class="mf"&gt;75.0&lt;/span&gt;     &lt;span class="mf"&gt;66.7&lt;/span&gt;     &lt;span class="mf"&gt;60.0&lt;/span&gt;  
    &lt;span class="mi"&gt;720&lt;/span&gt;&lt;span class="n"&gt;x400&lt;/span&gt;        &lt;span class="mf"&gt;70.1&lt;/span&gt;
+=======
+&lt;div class="highlight"&gt;&lt;pre&gt;Screen 0: minimum 320 x 200, current 2880 x 900, maximum 8192 x 8192
+VGA-1 connected 1440x900+1440+0 (normal left inverted right x axis y axis) 408mm x 255mm
+   1440x900       59.9*+   75.0  
+   1280x1024      75.0     70.0     60.0  
+   1280x960       60.0  
+   1366x768       60.0  
+   1360x768       60.0  
+   1280x800       74.9     59.8  
+   1152x864       75.0  
+   1280x768       74.9     59.9  
+   1024x768       75.1     70.1     60.0  
+   1024x576       60.0  
+   832x624        74.6  
+   800x600        72.2     75.0     60.3     56.2  
+   848x480        60.0  
+   640x480        72.8     75.0     66.7     60.0  
+   720x400        70.1  
+DVI-I-1 connected 1440x900+0+0 (normal left inverted right x axis y axis) 408mm x 255mm
+   1440x900       59.9*+   75.0  
+   1280x1024      75.0     70.0     60.0  
+   1280x960       60.0  
+   1366x768       60.0  
+   1360x768       60.0  
+   1280x800       74.9     59.8  
+   1152x864       75.0  
+   1280x768       74.9     59.9  
+   1024x768       75.1     70.1     60.0  
+   1024x576       60.0  
+   832x624        74.6  
+   800x600        72.2     75.0     60.3     56.2  
+   848x480        60.0  
+   640x480        72.8     75.0     66.7     60.0  
+   720x400        70.1
+>>>>>>> gh-pages
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;看到我的两个显示器对应着&lt;code&gt;VGA-1&lt;/code&gt;和&lt;code&gt;DVI-I-1&lt;/code&gt;，接下来设置两个显示器位置&lt;/p&gt;
+<<<<<<< HEAD
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;xrandr&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;output&lt;/span&gt; &lt;span class="n"&gt;DVI&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;I&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="k"&gt;auto&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;output&lt;/span&gt; &lt;span class="n"&gt;VGA&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="k"&gt;auto&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;right&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;DVI&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;I&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+=======
+&lt;div class="highlight"&gt;&lt;pre&gt;xrandr --output DVI-I-1 --auto --output VGA-1 --auto --right-of DVI-I-1
+>>>>>>> gh-pages
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -224,6 +385,7 @@ Arch下可可以通过&lt;code&gt;CUPS&lt;/code&gt;进行打印管理。&lt;/p&g
 &lt;p&gt;~~可以把这条命令通过 &lt;code&gt;Settings Manager&lt;/code&gt; =&amp;gt; &lt;code&gt;Sessioin and Startup&lt;/code&gt; =&amp;gt;  &lt;code&gt;Application Autostart&lt;/code&gt; 加入到xfce的自动启动列表中。~~&lt;/p&gt;
 &lt;p&gt;上面加入xfce自动启动列表后在系统重启后出现花屏。&lt;/p&gt;
 &lt;p&gt;可以把预览好位置的配置加入配置文件&lt;code&gt;/etc/X11/xorg.conf&lt;/code&gt;，以实现自动启动。&lt;/p&gt;
+<<<<<<< HEAD
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Section&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Monitor&amp;quot;&lt;/span&gt;
     &lt;span class="n"&gt;Identifier&lt;/span&gt;  &lt;span class="s"&gt;&amp;quot;VGA-1&amp;quot;&lt;/span&gt;
     &lt;span class="n"&gt;Option&lt;/span&gt;      &lt;span class="s"&gt;&amp;quot;Primary&amp;quot;&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;true&amp;quot;&lt;/span&gt;
@@ -233,6 +395,17 @@ Arch下可可以通过&lt;code&gt;CUPS&lt;/code&gt;进行打印管理。&lt;/p&g
     &lt;span class="n"&gt;Identifier&lt;/span&gt;  &lt;span class="s"&gt;&amp;quot;DVI-I-1&amp;quot;&lt;/span&gt;
     &lt;span class="n"&gt;Option&lt;/span&gt;      &lt;span class="s"&gt;&amp;quot;RightOf&amp;quot;&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;VGA-1&amp;quot;&lt;/span&gt;
 &lt;span class="n"&gt;EndSection&lt;/span&gt;
+=======
+&lt;div class="highlight"&gt;&lt;pre&gt;Section &amp;quot;Monitor&amp;quot;
+    Identifier  &amp;quot;VGA-1&amp;quot;
+    Option      &amp;quot;Primary&amp;quot; &amp;quot;true&amp;quot;
+EndSection
+
+Section &amp;quot;Monitor&amp;quot;
+    Identifier  &amp;quot;DVI-I-1&amp;quot;
+    Option      &amp;quot;RightOf&amp;quot; &amp;quot;VGA-1&amp;quot;
+EndSection
+>>>>>>> gh-pages
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -243,16 +416,27 @@ Arch下可可以通过&lt;code&gt;CUPS&lt;/code&gt;进行打印管理。&lt;/p&g
 &lt;p&gt;近来做了些性能测试的工作，基本指标便是某一操作的执行时间。&lt;/p&gt;
 &lt;p&gt;Unix提供了一个简单获取程序执行时间的小工具&lt;code&gt;time&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;基本使用方法：&lt;/p&gt;
+<<<<<<< HEAD
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;time&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;command&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="err"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;arguments&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;
+=======
+&lt;div class="highlight"&gt;&lt;pre&gt;time &amp;lt;command&amp;gt; [arguments]
+>>>>>>> gh-pages
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;简单地说，就是在需要获取时间的程序命令前面加上&lt;code&gt;time&lt;/code&gt;。统计输出三个执行时间，精确到ms。&lt;/p&gt;
 &lt;p&gt;不妨看看&lt;code&gt;sleep&lt;/code&gt;1秒的各项执行统计时间：&lt;/p&gt;
+<<<<<<< HEAD
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;time&lt;/span&gt; &lt;span class="n"&gt;sleep&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
 
 &lt;span class="n"&gt;real&lt;/span&gt;    &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;m1&lt;/span&gt;&lt;span class="mf"&gt;.024&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
 &lt;span class="n"&gt;user&lt;/span&gt;    &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;m0&lt;/span&gt;&lt;span class="mf"&gt;.001&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
+=======
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$time&lt;/span&gt; sleep 1
+
+real    0m1.024s
+user    0m0.001s
+>>>>>>> gh-pages
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -264,9 +448,15 @@ Arch下可可以通过&lt;code&gt;CUPS&lt;/code&gt;进行打印管理。&lt;/p&g
 &lt;p&gt;由于程序在执行时除了cpu处理指令外往往会产生io或其他开销，这部分耗时都计算在real中，因此user与sys之和往往小于real。&lt;/p&gt;
 &lt;h2&gt;两个time命令&lt;/h2&gt;
 &lt;p&gt;实际上在Unix中不仅仅只有一个&lt;code&gt;time&lt;/code&gt;，可以通过&lt;code&gt;type&lt;/code&gt;查看到所有&lt;code&gt;time&lt;/code&gt;命令的类型：&lt;/p&gt;
+<<<<<<< HEAD
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;time&lt;/span&gt;
 &lt;span class="n"&gt;time&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;shell&lt;/span&gt; &lt;span class="n"&gt;keyword&lt;/span&gt;
 &lt;span class="n"&gt;time&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;time&lt;/span&gt;
+=======
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$type&lt;/span&gt; -a &lt;span class="nb"&gt;time&lt;/span&gt;
+&lt;span class="nb"&gt;time &lt;/span&gt;is a shell keyword
+&lt;span class="nb"&gt;time &lt;/span&gt;is /usr/bin/time
+>>>>>>> gh-pages
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -274,12 +464,21 @@ Arch下可可以通过&lt;code&gt;CUPS&lt;/code&gt;进行打印管理。&lt;/p&g
 &lt;h2&gt;time输出重定向&lt;/h2&gt;
 &lt;p&gt;time统计信息默认输出到标准错误输出&lt;code&gt;stderr&lt;/code&gt;，而不是标准输出&lt;code&gt;stdout&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;外部命令&lt;code&gt;/usr/bin/time&lt;/code&gt;可以&lt;/p&gt;
+<<<<<<< HEAD
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;time&lt;/span&gt; &lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;hello&lt;/span&gt; &lt;span class="n"&gt;world&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
 &lt;span class="n"&gt;hello&lt;/span&gt; &lt;span class="n"&gt;world&lt;/span&gt;
 
 &lt;span class="n"&gt;real&lt;/span&gt;    &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;m0&lt;/span&gt;&lt;span class="mf"&gt;.000&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
 &lt;span class="n"&gt;user&lt;/span&gt;    &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;m0&lt;/span&gt;&lt;span class="mf"&gt;.000&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
 &lt;span class="n"&gt;sys&lt;/span&gt;     &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;m0&lt;/span&gt;&lt;span class="mf"&gt;.000&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
+=======
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$time&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;hello world&amp;#39;&lt;/span&gt; 2&amp;gt; 1
+hello world
+
+real    0m0.000s
+user    0m0.000s
+sys     0m0.000s
+>>>>>>> gh-pages
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -289,9 +488,15 @@ Arch下可可以通过&lt;code&gt;CUPS&lt;/code&gt;进行打印管理。&lt;/p&g
 &lt;p&gt;与大多数的vim命令一样，键入数字后再接命令则表示重复执行多次该命令。比如&lt;code&gt;5&amp;lt;C-a&amp;gt;&lt;/code&gt;将下一个数字递增5。&lt;/p&gt;
 &lt;h2&gt;宏&lt;/h2&gt;
 &lt;p&gt;vim的宏机制便于我们即时地创造、组合复杂的命令。&lt;/p&gt;
+<<<<<<< HEAD
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;qa&lt;/span&gt;
 &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="n"&gt;something&lt;/span&gt;&lt;span class="p"&gt;...&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;
 &lt;span class="n"&gt;q&lt;/span&gt;
+=======
+&lt;div class="highlight"&gt;&lt;pre&gt;qa
+% &lt;span class="k"&gt;do&lt;/span&gt; something... %
+q
+>>>>>>> gh-pages
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -299,19 +504,34 @@ Arch下可可以通过&lt;code&gt;CUPS&lt;/code&gt;进行打印管理。&lt;/p&g
 &lt;p&gt;录制好后，按&lt;code&gt;@a&lt;/code&gt;就开始执行&lt;code&gt;do something&lt;/code&gt;的部分。&lt;/p&gt;
 &lt;h2&gt;构造列表&lt;/h2&gt;
 &lt;p&gt;例如有如下列表需要构造：&lt;/p&gt;
+<<<<<<< HEAD
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nl"&gt;http:&lt;/span&gt;&lt;span class="c1"&gt;//www.a.com/blog.php?page=1&lt;/span&gt;
 &lt;span class="nl"&gt;http:&lt;/span&gt;&lt;span class="c1"&gt;//www.a.com/blog.php?page=2&lt;/span&gt;
 &lt;span class="nl"&gt;http:&lt;/span&gt;&lt;span class="c1"&gt;//www.a.com/blog.php?page=3&lt;/span&gt;
 &lt;span class="p"&gt;...&lt;/span&gt;
+=======
+&lt;div class="highlight"&gt;&lt;pre&gt;http://www.a.com/blog.php?page&lt;span class="o"&gt;=&lt;/span&gt;1
+http://www.a.com/blog.php?page&lt;span class="o"&gt;=&lt;/span&gt;2
+http://www.a.com/blog.php?page&lt;span class="o"&gt;=&lt;/span&gt;3
+...
+>>>>>>> gh-pages
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;可以输入第一行后录制一段宏：&lt;/p&gt;
+<<<<<<< HEAD
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;qa&lt;/span&gt;
 &lt;span class="n"&gt;Y&lt;/span&gt;
 &lt;span class="n"&gt;p&lt;/span&gt;
 &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 &lt;span class="n"&gt;q&lt;/span&gt;
+=======
+&lt;div class="highlight"&gt;&lt;pre&gt;qa
+Y
+p
+&amp;lt;C-a&amp;gt;
+q
+>>>>>>> gh-pages
 &lt;/pre&gt;&lt;/div&gt;
 
 

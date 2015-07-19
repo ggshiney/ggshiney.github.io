@@ -1,13 +1,19 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
+=======
+<html lang="zh"
+>
+>>>>>>> gh-pages
 <head>
     <title>Mac OS - ggshiney blog</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     
 
     <!-- Open Graph tags -->
@@ -25,12 +31,40 @@
 
         <link href="http://blog.ggshiney.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
               title="ggshiney blog ATOM Feed"/>
+=======
+
+
+
+
+    <meta name="author" content="ggshiney" />
+    <meta name="keywords" content="Mac OS" />
+
+    <!-- Open Graph tags -->
+        <meta property="og:site_name" content="ggshiney blog" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="ggshiney blog"/>
+        <meta property="og:url" content=""/>
+        <meta property="og:description" content="ggshiney blog"/>
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+>>>>>>> gh-pages
 
 </head>
 <body>
 
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<<<<<<< HEAD
     <div class="container">
+=======
+	<div class="container">
+>>>>>>> gh-pages
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -38,29 +72,50 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+<<<<<<< HEAD
             <a href="http://blog.ggshiney.com/" class="navbar-brand">
+=======
+            <a href="/" class="navbar-brand">
+>>>>>>> gh-pages
 ggshiney blog            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
+<<<<<<< HEAD
                          <li><a href="http://blog.ggshiney.com/pages/about.html">
+=======
+                         <li><a href="/pages/about.html">
+>>>>>>> gh-pages
                              About
                           </a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+<<<<<<< HEAD
                 <li><a href="http://blog.ggshiney.com/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+=======
+              <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+>>>>>>> gh-pages
             </ul>
         </div>
         <!-- /.navbar-collapse -->
     </div>
 </div> <!-- /.navbar -->
+<<<<<<< HEAD
 
+=======
+<!-- Banner -->
+<!-- End Banner -->
+>>>>>>> gh-pages
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
 
             <article>
+<<<<<<< HEAD
                 <h2><a href="http://blog.ggshiney.com/posts/2012/11/22/file-extended-attributes-in-mac-os.html">Mac OS下的文件扩展属性</a></h2>
+=======
+                <h2><a href="/posts/2012/11/22/file-extended-attributes-in-mac-os.html">Mac OS下的文件扩展属性</a></h2>
+>>>>>>> gh-pages
                 <div class="summary"><h2>恼人的<code>@</code></h2>
 <p>在mac下<code>ls -l</code>，常常看到9位文件权限后面跟着一个<code>@</code>符号，这货是干啥的？</p>
 <p>原来，这就是mac文件系统的扩展属性。通过一些mac下的软件、工具操作文件后往往会给文件附加上扩展属性，而只通过<code>Terminal</code>进行的一般文件操作则不会附加上这些属性。</p>
@@ -68,6 +123,7 @@ ggshiney blog            </a>
 <h2>解决之道</h2>
 <p>既然是扩展属性，总是有方法去掉的。</p>
 <p>mac提供了<code>xattr</code>进行扩展属性操作。可以先通过<code>ls -l@</code>，增加一个<code>@</code>参数查看文件有那些扩展属性。</p>
+<<<<<<< HEAD
 <div class="highlight"><pre><span class="n">ls</span> <span class="o">-</span><span class="n">l</span><span class="err">@</span> <span class="n">filename</span><span class="p">.</span><span class="n">test</span>
 
 <span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span><span class="err">@</span>  <span class="mi">1</span> <span class="n">user</span>  <span class="n">staff</span>    <span class="mi">512</span>  <span class="mi">1</span> <span class="mi">1</span> <span class="mi">20</span><span class="o">:</span><span class="mi">20</span> <span class="n">filename</span><span class="p">.</span><span class="n">test</span>
@@ -77,19 +133,38 @@ ggshiney blog            </a>
 
 <p>之后可以用 ...</p>
                     <a class="btn btn-default btn-xs" href="http://blog.ggshiney.com/posts/2012/11/22/file-extended-attributes-in-mac-os.html">more ...</a>
+=======
+<div class="highlight"><pre>ls -l@ filename.test
+
+-rw-r--r--@  1 user  staff    512  1 1 20:20 filename.test
+    com.apple.TextEncoding      15
+</pre></div>
+
+
+<p>之后可以用<code>xattr</code>删除之 ...</p>
+                    <a class="btn btn-default btn-xs" href="/posts/2012/11/22/file-extended-attributes-in-mac-os.html">more ...</a>
+>>>>>>> gh-pages
                 </div>
             </article>
             <hr/>
             <article>
+<<<<<<< HEAD
                 <h2><a href="http://blog.ggshiney.com/posts/2012/10/31/tar-in-mac-os-x.html">Tar in Mac OS X</a></h2>
                 <div class="summary"><p>近来在做<a href="http://openhatch.org/">OpenHatch</a>，新手任务里面提到了tar命令在Mac OS X下的一个小tip。</p>
 <p>通常在Mac OS X下会产程很多以<code>._</code>开始的隐藏文件，在打tar包的时候往往也会包含进去。如果要把这些隐藏文件排除在外则，可以增加一个环境变量<code>COPYFILE_DISABLE=true</code>。</p>
                     <a class="btn btn-default btn-xs" href="http://blog.ggshiney.com/posts/2012/10/31/tar-in-mac-os-x.html">more ...</a>
+=======
+                <h2><a href="/posts/2012/10/31/tar-in-mac-os-x.html">Tar in Mac OS X</a></h2>
+                <div class="summary"><p>近来在做<a href="http://openhatch.org/">OpenHatch</a>，新手任务里面提到了tar命令在Mac OS X下的一个小tip。</p>
+<p>通常在Mac OS X下会产程很多以<code>._</code>开始的隐藏文件，在打tar包的时候往往也会包含进去。如果要把这些隐藏文件排除在外则，可以增加一个环境变量<code>COPYFILE_DISABLE=true</code>。</p>
+                    <a class="btn btn-default btn-xs" href="/posts/2012/10/31/tar-in-mac-os-x.html">more ...</a>
+>>>>>>> gh-pages
                 </div>
             </article>
             <hr/>
 
         </div>
+<<<<<<< HEAD
         <div class="col-sm-3 well well-sm" id="sidebar">
 
 <aside>
@@ -137,6 +212,26 @@ ggshiney blog            </a>
                         </li>
                     </ul>
                 </li>    
+=======
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+              <ul class="list-group" id="social">
+                <li class="list-group-item"><a href="http://twitter.com/ggshiney"><i class="fa fa-twitter-square fa-lg"></i> twitter</a></li>
+                <li class="list-group-item"><a href="http://github.com/ggshiney"><i class="fa fa-github-square fa-lg"></i> github</a></li>
+              </ul>
+            </li>
+
+
+
+            <li class="list-group-item"><a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group " id="tags">
+                </ul>
+            </li>
+>>>>>>> gh-pages
     <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
       <ul class="list-group" id="links">
         <li class="list-group-item">
@@ -156,11 +251,18 @@ ggshiney blog            </a>
         </li>
       </ul>
     </li>
+<<<<<<< HEAD
 
         </ul>
     </section>
 
 </aside>        </div>
+=======
+    </ul>
+</section>
+            </aside>
+        </div>
+>>>>>>> gh-pages
     </div>
 </div>
 <footer>
@@ -175,6 +277,7 @@ ggshiney blog            </a>
       </div>
    </div>
 </footer>
+<<<<<<< HEAD
 <script src="http://code.jquery.com/jquery.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -182,6 +285,16 @@ ggshiney blog            </a>
 
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
 <script src="http://blog.ggshiney.com/theme/js/respond.min.js"></script>
+=======
+<script src="/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+>>>>>>> gh-pages
 
 </body>
 </html>

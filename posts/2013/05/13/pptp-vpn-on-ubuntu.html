@@ -1,13 +1,19 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
+=======
+<html lang="zh"
+>
+>>>>>>> gh-pages
 <head>
     <title>Ubuntu配置PPTP VPN - ggshiney blog</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     
 
     <!-- Open Graph tags -->
@@ -25,12 +31,45 @@
 
         <link href="http://blog.ggshiney.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
               title="ggshiney blog ATOM Feed"/>
+=======
+
+
+
+<link rel="canonical" href="/posts/2013/05/13/pptp-vpn-on-ubuntu.html">
+
+        <meta name="author" content="ggshiney" />
+        <meta name="keywords" content="Ubuntu" />
+        <meta name="description" content="接手一台新服务器，简单记录一下pptp vpn加ufw防火墙在ubuntu上的设置。 这样学校范围内就能实现手机通过vpn免费上网了。 同样，在校外也可以通过vpn访问校园网资源。 配置PPTP 安装pptpd软件包： apt-get install pptpd 编辑/etc/pptpd.conf配置文件： 修改其中的localip为pptp服务端的vpn网关ip，remoteip为pptp客户端分配的ip地址范围。 localip 192.168.100.1 remoteip 192.168.100.101-110 编辑/etc/ppp/pptpd-options： 修改ms-dns字段，当使用windows pptp客户端时获取的DNS。 其实我只为了服务一台iphone，这里并不需要设置。 ms-dns 114.114.114.114 编辑/etc/ppp/chap-secrets： 对应的四个字段为客户端连接时使用的用户名、服务、密码、ip ..." />
+
+        <meta property="og:site_name" content="ggshiney blog" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Ubuntu配置PPTP VPN"/>
+        <meta property="og:url" content="/posts/2013/05/13/pptp-vpn-on-ubuntu.html"/>
+        <meta property="og:description" content="接手一台新服务器，简单记录一下pptp vpn加ufw防火墙在ubuntu上的设置。 这样学校范围内就能实现手机通过vpn免费上网了。 同样，在校外也可以通过vpn访问校园网资源。 配置PPTP 安装pptpd软件包： apt-get install pptpd 编辑/etc/pptpd.conf配置文件： 修改其中的localip为pptp服务端的vpn网关ip，remoteip为pptp客户端分配的ip地址范围。 localip 192.168.100.1 remoteip 192.168.100.101-110 编辑/etc/ppp/pptpd-options： 修改ms-dns字段，当使用windows pptp客户端时获取的DNS。 其实我只为了服务一台iphone，这里并不需要设置。 ms-dns 114.114.114.114 编辑/etc/ppp/chap-secrets： 对应的四个字段为客户端连接时使用的用户名、服务、密码、ip ..."/>
+        <meta property="article:published_time" content="2013-05-13" />
+            <meta property="article:section" content="Walkthrough" />
+            <meta property="article:tag" content="Ubuntu" />
+            <meta property="article:author" content="ggshiney" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+>>>>>>> gh-pages
 
 </head>
 <body>
 
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<<<<<<< HEAD
     <div class="container">
+=======
+	<div class="container">
+>>>>>>> gh-pages
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -38,23 +77,40 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+<<<<<<< HEAD
             <a href="http://blog.ggshiney.com/" class="navbar-brand">
+=======
+            <a href="/" class="navbar-brand">
+>>>>>>> gh-pages
 ggshiney blog            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
+<<<<<<< HEAD
                          <li><a href="http://blog.ggshiney.com/pages/about.html">
+=======
+                         <li><a href="/pages/about.html">
+>>>>>>> gh-pages
                              About
                           </a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+<<<<<<< HEAD
                 <li><a href="http://blog.ggshiney.com/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+=======
+              <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+>>>>>>> gh-pages
             </ul>
         </div>
         <!-- /.navbar-collapse -->
     </div>
 </div> <!-- /.navbar -->
+<<<<<<< HEAD
 
+=======
+<!-- Banner -->
+<!-- End Banner -->
+>>>>>>> gh-pages
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
@@ -63,7 +119,11 @@ ggshiney blog            </a>
         <article>
             <header class="page-header">
                 <h1>
+<<<<<<< HEAD
                     <a href="http://blog.ggshiney.com/posts/2013/05/13/pptp-vpn-on-ubuntu.html"
+=======
+                    <a href="/posts/2013/05/13/pptp-vpn-on-ubuntu.html"
+>>>>>>> gh-pages
                        rel="bookmark"
                        title="Permalink to Ubuntu配置PPTP VPN">
                         Ubuntu配置PPTP VPN
@@ -76,13 +136,21 @@ ggshiney blog            </a>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
+<<<<<<< HEAD
         <i class="fa fa-calendar"></i><time datetime="2013-05-13T18:20:12"> Mon 13 May 2013</time>
+=======
+        <i class="fa fa-calendar"></i><time datetime="2013-05-13T18:20:12+08:00"> 一 13 五月 2013</time>
+>>>>>>> gh-pages
     </span>
 
 
 
 <span class="label label-default">Tags</span>
+<<<<<<< HEAD
 	<a href="http://blog.ggshiney.com/tag/ubuntu.html">Ubuntu</a>
+=======
+	<a href="/tag/ubuntu.html">Ubuntu</a>
+>>>>>>> gh-pages
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
@@ -91,21 +159,34 @@ ggshiney blog            </a>
 同样，在校外也可以通过vpn访问校园网资源。</p>
 <h2>配置PPTP</h2>
 <p>安装pptpd软件包：</p>
+<<<<<<< HEAD
 <div class="highlight"><pre><span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">pptpd</span>
+=======
+<div class="highlight"><pre>apt-get install pptpd
+>>>>>>> gh-pages
 </pre></div>
 
 
 <p>编辑<code>/etc/pptpd.conf</code>配置文件：
 修改其中的localip为pptp服务端的vpn网关ip，remoteip为pptp客户端分配的ip地址范围。</p>
+<<<<<<< HEAD
 <div class="highlight"><pre><span class="n">localip</span> <span class="mf">192.168.100.1</span>
 <span class="n">remoteip</span> <span class="mf">192.168.100.101</span><span class="o">-</span><span class="mi">110</span>
+=======
+<div class="highlight"><pre>localip 192.168.100.1
+remoteip 192.168.100.101-110
+>>>>>>> gh-pages
 </pre></div>
 
 
 <p>编辑<code>/etc/ppp/pptpd-options</code>：
 修改ms-dns字段，当使用windows pptp客户端时获取的DNS。
 其实我只为了服务一台iphone，这里并不需要设置。</p>
+<<<<<<< HEAD
 <div class="highlight"><pre><span class="n">ms</span><span class="o">-</span><span class="n">dns</span> <span class="mf">114.114.114.114</span>
+=======
+<div class="highlight"><pre>ms-dns 114.114.114.114
+>>>>>>> gh-pages
 </pre></div>
 
 
@@ -113,29 +194,49 @@ ggshiney blog            </a>
 对应的四个字段为客户端连接时使用的用户名、服务、密码、ip。
 服务名对应<code>pptpd-options</code>中的对应字段值，如默认则为<code>pptpd</code>。
 ip地址设置<code>*</code>为允许任意来源。</p>
+<<<<<<< HEAD
 <div class="highlight"><pre><span class="p">[</span><span class="n">USERNAME</span><span class="p">]</span>    <span class="n">pptpd</span>    <span class="p">[</span><span class="n">PASSWORD</span><span class="p">]</span>    <span class="o">*</span>
+=======
+<div class="highlight"><pre>[USERNAME]    pptpd    [PASSWORD]    *
+>>>>>>> gh-pages
 </pre></div>
 
 
 <p>编辑<code>/etc/sysctl.conf</code>：开启路由转发。</p>
+<<<<<<< HEAD
 <div class="highlight"><pre><span class="n">net</span><span class="p">.</span><span class="n">ipv4</span><span class="p">.</span><span class="n">ip_forward</span><span class="o">=</span><span class="mi">1</span>
+=======
+<div class="highlight"><pre>net.ipv4.ip_forward=1
+>>>>>>> gh-pages
 </pre></div>
 
 
 <p>通过如下命令使之生效：</p>
+<<<<<<< HEAD
 <div class="highlight"><pre><span class="n">sysctl</span> <span class="o">-</span><span class="n">p</span>
+=======
+<div class="highlight"><pre>sysctl -p
+>>>>>>> gh-pages
 </pre></div>
 
 
 <p>重启<code>pptpd</code>服务：</p>
+<<<<<<< HEAD
 <div class="highlight"><pre><span class="n">service</span> <span class="n">pptpd</span> <span class="n">restart</span>
+=======
+<div class="highlight"><pre>service pptpd restart
+>>>>>>> gh-pages
 </pre></div>
 
 
 <p>如果不配置ufw防火墙的话，至此即可实现vpn认证连接。
 如需要实现vpn上网，仍需要设置iptables：(如后面配置ufw则不用这一步)
 其中<code>-s</code>指定的来源地址对应<code>/etc/pptpd.conf</code>中的ip网段。</p>
+<<<<<<< HEAD
 <div class="highlight"><pre><span class="n">iptables</span> <span class="o">-</span><span class="n">t</span> <span class="n">nat</span> <span class="o">-</span><span class="n">A</span> <span class="n">POSTROUTING</span> <span class="o">-</span><span class="n">s</span> <span class="mf">192.168.100.0</span><span class="o">/</span><span class="mi">24</span> <span class="o">-</span><span class="n">o</span> <span class="n">eth0</span> <span class="o">-</span><span class="n">j</span> <span class="n">MASQUERADE</span>
+=======
+<div class="highlight"><pre>iptables -t nat -A POSTROUTING -s 192.168.100.0/24 -o eth0 -j MASQUERADE
+>>>>>>> gh-pages
 </pre></div>
 
 
@@ -144,38 +245,67 @@ ip地址设置<code>*</code>为允许任意来源。</p>
 <p>编辑<code>/etc/netword/interfaces</code>：
 设置eth0的ip别名：
 address对应<code>/etc/pptpd.conf</code>中的设置。</p>
+<<<<<<< HEAD
 <div class="highlight"><pre><span class="k">auto</span> <span class="n">eth0</span><span class="o">:</span><span class="mi">0</span>
 <span class="n">iface</span> <span class="n">eth0</span><span class="o">:</span><span class="mi">0</span> <span class="n">inet</span> <span class="k">static</span>
 <span class="n">address</span> <span class="mf">192.168.100.1</span>
 <span class="n">netmask</span> <span class="mf">255.255.255.0</span>
+=======
+<div class="highlight"><pre>auto eth0:0
+iface eth0:0 inet static
+address 192.168.100.1
+netmask 255.255.255.0
+>>>>>>> gh-pages
 </pre></div>
 
 
 <p>编辑<code>/etc/default/ufw</code>：
 修改<code>DEFAULT_FORWARD_POLICY</code>字段为<code>ACCEPT</code>。</p>
+<<<<<<< HEAD
 <div class="highlight"><pre><span class="n">DEFAULT_FORWARD_POLICY</span><span class="o">=</span><span class="err">“</span><span class="n">ACCEPT</span><span class="err">”</span>
+=======
+<div class="highlight"><pre>DEFAULT_FORWARD_POLICY=“ACCEPT”
+>>>>>>> gh-pages
 </pre></div>
 
 
 <p>编辑<code>/etc/ufw/before.rules</code>：
 加入如下内容至<code>*filter</code>规则前，通过iptables实现转发。</p>
+<<<<<<< HEAD
 <div class="highlight"><pre><span class="o">*</span><span class="n">nat</span>
 <span class="o">:</span><span class="n">POSTROUTING</span> <span class="n">ACCEPT</span> <span class="p">[</span><span class="mi">0</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span>
 <span class="o">-</span><span class="n">A</span> <span class="n">POSTROUTING</span> <span class="o">-</span><span class="n">s</span> <span class="mf">192.168.2.0</span><span class="o">/</span><span class="mi">24</span> <span class="o">-</span><span class="n">o</span> <span class="n">eth0</span> <span class="o">-</span><span class="n">j</span> <span class="n">MASQUERADE</span>
 
 <span class="n">COMMIT</span>
+=======
+<div class="highlight"><pre>*nat
+:POSTROUTING ACCEPT [0:0]
+-A POSTROUTING -s 192.168.2.0/24 -o eth0 -j MASQUERADE
+
+COMMIT
+>>>>>>> gh-pages
 </pre></div>
 
 
 <p>ufw中加入允许pptp默认的1723端口：</p>
+<<<<<<< HEAD
 <div class="highlight"><pre><span class="n">ufw</span> <span class="n">allow</span> <span class="mi">1723</span>
+=======
+<div class="highlight"><pre>ufw allow 1723
+>>>>>>> gh-pages
 </pre></div>
 
 
 <p>最后重启服务：</p>
+<<<<<<< HEAD
 <div class="highlight"><pre><span class="n">service</span> <span class="n">networking</span> <span class="n">restart</span>
 <span class="n">service</span> <span class="n">ufw</span> <span class="n">restart</span>
 <span class="n">service</span> <span class="n">pptpd</span> <span class="n">restart</span>
+=======
+<div class="highlight"><pre>service networking restart
+service ufw restart
+service pptpd restart
+>>>>>>> gh-pages
 </pre></div>
 
 
@@ -188,6 +318,7 @@ address对应<code>/etc/pptpd.conf</code>中的设置。</p>
     </section>
 
         </div>
+<<<<<<< HEAD
         <div class="col-sm-3 well well-sm" id="sidebar">
 
 <aside>
@@ -235,6 +366,26 @@ address对应<code>/etc/pptpd.conf</code>中的设置。</p>
                         </li>
                     </ul>
                 </li>    
+=======
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+              <ul class="list-group" id="social">
+                <li class="list-group-item"><a href="http://twitter.com/ggshiney"><i class="fa fa-twitter-square fa-lg"></i> twitter</a></li>
+                <li class="list-group-item"><a href="http://github.com/ggshiney"><i class="fa fa-github-square fa-lg"></i> github</a></li>
+              </ul>
+            </li>
+
+
+
+            <li class="list-group-item"><a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group " id="tags">
+                </ul>
+            </li>
+>>>>>>> gh-pages
     <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
       <ul class="list-group" id="links">
         <li class="list-group-item">
@@ -254,18 +405,29 @@ address对应<code>/etc/pptpd.conf</code>中的设置。</p>
         </li>
       </ul>
     </li>
+<<<<<<< HEAD
 
         </ul>
     </section>
 
 </aside>        </div>
+=======
+    </ul>
+</section>
+            </aside>
+        </div>
+>>>>>>> gh-pages
     </div>
 </div>
 <footer>
    <div class="container">
       <hr>
       <div class="row">
+<<<<<<< HEAD
          <div class="col-xs-10">&copy; 2013 ggshiney
+=======
+         <div class="col-xs-10">&copy; 2015 ggshiney
+>>>>>>> gh-pages
             &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
@@ -273,6 +435,7 @@ address对应<code>/etc/pptpd.conf</code>中的设置。</p>
       </div>
    </div>
 </footer>
+<<<<<<< HEAD
 <script src="http://code.jquery.com/jquery.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -280,6 +443,16 @@ address对应<code>/etc/pptpd.conf</code>中的设置。</p>
 
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
 <script src="http://blog.ggshiney.com/theme/js/respond.min.js"></script>
+=======
+<script src="/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+>>>>>>> gh-pages
 
 </body>
 </html>

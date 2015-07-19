@@ -1,5 +1,9 @@
 .highlight pre .hll { background-color: #ffffcc }
+<<<<<<< HEAD
 .highlight pre, .highlighttable pre { background: #ffffff; }
+=======
+.highlight pre  { background: #ffffff; }
+>>>>>>> gh-pages
 .highlight pre .c { color: #888888 } /* Comment */
 .highlight pre .err { color: #a61717; background-color: #e3d2d2 } /* Error */
 .highlight pre .k { color: #008800; font-weight: bold } /* Keyword */
@@ -39,6 +43,10 @@
 .highlight pre .nv { color: #336699 } /* Name.Variable */
 .highlight pre .ow { color: #008800 } /* Operator.Word */
 .highlight pre .w { color: #bbbbbb } /* Text.Whitespace */
+<<<<<<< HEAD
+=======
+.highlight pre .mb { color: #0000DD; font-weight: bold } /* Literal.Number.Bin */
+>>>>>>> gh-pages
 .highlight pre .mf { color: #0000DD; font-weight: bold } /* Literal.Number.Float */
 .highlight pre .mh { color: #0000DD; font-weight: bold } /* Literal.Number.Hex */
 .highlight pre .mi { color: #0000DD; font-weight: bold } /* Literal.Number.Integer */

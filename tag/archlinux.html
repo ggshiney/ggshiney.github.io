@@ -1,13 +1,19 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
+=======
+<html lang="zh"
+>
+>>>>>>> gh-pages
 <head>
     <title>ArchLinux - ggshiney blog</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     
 
     <!-- Open Graph tags -->
@@ -25,12 +31,40 @@
 
         <link href="http://blog.ggshiney.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
               title="ggshiney blog ATOM Feed"/>
+=======
+
+
+
+
+    <meta name="author" content="ggshiney" />
+    <meta name="keywords" content="ArchLinux" />
+
+    <!-- Open Graph tags -->
+        <meta property="og:site_name" content="ggshiney blog" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="ggshiney blog"/>
+        <meta property="og:url" content=""/>
+        <meta property="og:description" content="ggshiney blog"/>
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+>>>>>>> gh-pages
 
 </head>
 <body>
 
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<<<<<<< HEAD
     <div class="container">
+=======
+	<div class="container">
+>>>>>>> gh-pages
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -38,58 +72,100 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+<<<<<<< HEAD
             <a href="http://blog.ggshiney.com/" class="navbar-brand">
+=======
+            <a href="/" class="navbar-brand">
+>>>>>>> gh-pages
 ggshiney blog            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
+<<<<<<< HEAD
                          <li><a href="http://blog.ggshiney.com/pages/about.html">
+=======
+                         <li><a href="/pages/about.html">
+>>>>>>> gh-pages
                              About
                           </a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+<<<<<<< HEAD
                 <li><a href="http://blog.ggshiney.com/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+=======
+              <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+>>>>>>> gh-pages
             </ul>
         </div>
         <!-- /.navbar-collapse -->
     </div>
 </div> <!-- /.navbar -->
+<<<<<<< HEAD
 
+=======
+<!-- Banner -->
+<!-- End Banner -->
+>>>>>>> gh-pages
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
 
             <article>
+<<<<<<< HEAD
                 <h2><a href="http://blog.ggshiney.com/posts/2012/11/28/add-network-printer-for-archlinux.html">Arch Linux添加网络打印机</a></h2>
+=======
+                <h2><a href="/posts/2012/11/28/add-network-printer-for-archlinux.html">Arch Linux添加网络打印机</a></h2>
+>>>>>>> gh-pages
                 <div class="summary"><p>终于，实验室买了台高级打印机，可以配置独立的IP地址，支持网络打印。
 索性给我这台Arch Linux也配置上网络打印功能。</p>
 <h2>UNIX/Linux下的打印管理工具<code>CUPS</code></h2>
 <p><a href="http://www.cups.org">CUPS</a>(Common UNIX Printing System)，是Apple开发的一套UNIX开源打印系统。
 Arch下可可以通过<code>CUPS</code>进行打印管理。</p>
 <p>安装<code>CUPS</code>很简单：</p>
+<<<<<<< HEAD
 <div class="highlight"><pre><span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="n">cups</span> <span class="n">libcups</span>
+=======
+<div class="highlight"><pre>pacman -S cups libcups
+>>>>>>> gh-pages
 </pre></div>
 
 
 <p><code>CPUS</code>安装好后，需要根据打印机安装相应的driver。
 我们的HP打印机对应的驱动包<code>hplip</code>，所有的HP打印机都可以使用：</p>
+<<<<<<< HEAD
 <div class="highlight"><pre><span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="n">hplip</span>
+=======
+<div class="highlight"><pre>pacman -S hplip
+>>>>>>> gh-pages
 </pre></div>
 
 
 <p>之后启动<code>CUPS</code>守护进程，并把<code>CUPS</code>加入启动服务。</p>
+<<<<<<< HEAD
 <div class="highlight"><pre><span class="n">systemctl</span> <span class="n">start</span> <span class="n">cups</span>
 <span class="n">systemctl</span> <span class="n">enable</span> <span class="n">cups</span>
+=======
+<div class="highlight"><pre>systemctl start cups
+systemctl enable cups
+>>>>>>> gh-pages
 </pre></div>
 
 
 <p><code>CUPS</code>的基本管理功能通过本地web页面进行操作，需要前用户在<code>sys ...</code></p>
+<<<<<<< HEAD
                     <a class="btn btn-default btn-xs" href="http://blog.ggshiney.com/posts/2012/11/28/add-network-printer-for-archlinux.html">more ...</a>
+=======
+                    <a class="btn btn-default btn-xs" href="/posts/2012/11/28/add-network-printer-for-archlinux.html">more ...</a>
+>>>>>>> gh-pages
                 </div>
             </article>
             <hr/>
             <article>
+<<<<<<< HEAD
                 <h2><a href="http://blog.ggshiney.com/posts/2012/11/14/config-dual-monitor-for-archlinux.html">Arch Linux配置双屏</a></h2>
+=======
+                <h2><a href="/posts/2012/11/14/config-dual-monitor-for-archlinux.html">Arch Linux配置双屏</a></h2>
+>>>>>>> gh-pages
                 <div class="summary"><h2>前言</h2>
 <p>实验室设备更新，捡来块有VGA+DVI双接口的Nvdia显卡。自己的老机器用的是集成显卡，便打算给自己的机器升级配置双显示屏。</p>
 <h2>配置双屏显示</h2>
@@ -105,23 +181,41 @@ Arch下可可以通过<code>CUPS</code>进行打印管理。</p>
 <h3>驱动</h3>
 <p>我的ArchLinux已经配置了xfce桌面环境，先装个NVIDIA驱动。</p>
 <p>ArchLinux中列出所有的PCI设备：</p>
+<<<<<<< HEAD
 <div class="highlight"><pre><span class="n">lspci</span>
+=======
+<div class="highlight"><pre>lspci
+>>>>>>> gh-pages
 </pre></div>
 
 
 <p>看到硕大的NVIDIA，确认是Nvdia的显卡，接着找找驱动。ArchLinux中的显卡驱动都是以<code>xf86-video</code>开头的。</p>
+<<<<<<< HEAD
 <div class="highlight"><pre><span class="n">pacman</span> <span class="o">-</span><span class="n">Ss</span> <span class="n">xf86</span><span class="o">-</span><span class="n">video</span>
+=======
+<div class="highlight"><pre>pacman -Ss xf86-video
+>>>>>>> gh-pages
 </pre></div>
 
 
 <p>发现<code>xf86-video-nouveau</code>是N卡的驱动，安装之。</p>
+<<<<<<< HEAD
 <div class="highlight"><pre><span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="n">xf86 ...</span></pre></div>
                     <a class="btn btn-default btn-xs" href="http://blog.ggshiney.com/posts/2012/11/14/config-dual-monitor-for-archlinux.html">more ...</a>
+=======
+<div class="highlight"><pre>pacman -S xf86-video-nouveau
+</pre></div>
+
+
+<h3>配置双屏显示 ...</h3>
+                    <a class="btn btn-default btn-xs" href="/posts/2012/11/14/config-dual-monitor-for-archlinux.html">more ...</a>
+>>>>>>> gh-pages
                 </div>
             </article>
             <hr/>
 
         </div>
+<<<<<<< HEAD
         <div class="col-sm-3 well well-sm" id="sidebar">
 
 <aside>
@@ -169,6 +263,26 @@ Arch下可可以通过<code>CUPS</code>进行打印管理。</p>
                         </li>
                     </ul>
                 </li>    
+=======
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+              <ul class="list-group" id="social">
+                <li class="list-group-item"><a href="http://twitter.com/ggshiney"><i class="fa fa-twitter-square fa-lg"></i> twitter</a></li>
+                <li class="list-group-item"><a href="http://github.com/ggshiney"><i class="fa fa-github-square fa-lg"></i> github</a></li>
+              </ul>
+            </li>
+
+
+
+            <li class="list-group-item"><a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group " id="tags">
+                </ul>
+            </li>
+>>>>>>> gh-pages
     <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
       <ul class="list-group" id="links">
         <li class="list-group-item">
@@ -188,11 +302,18 @@ Arch下可可以通过<code>CUPS</code>进行打印管理。</p>
         </li>
       </ul>
     </li>
+<<<<<<< HEAD
 
         </ul>
     </section>
 
 </aside>        </div>
+=======
+    </ul>
+</section>
+            </aside>
+        </div>
+>>>>>>> gh-pages
     </div>
 </div>
 <footer>
@@ -207,6 +328,7 @@ Arch下可可以通过<code>CUPS</code>进行打印管理。</p>
       </div>
    </div>
 </footer>
+<<<<<<< HEAD
 <script src="http://code.jquery.com/jquery.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -214,6 +336,16 @@ Arch下可可以通过<code>CUPS</code>进行打印管理。</p>
 
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
 <script src="http://blog.ggshiney.com/theme/js/respond.min.js"></script>
+=======
+<script src="/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+>>>>>>> gh-pages
 
 </body>
 </html>
