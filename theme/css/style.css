@@ -22,13 +22,10 @@ body {
     border: none;
 }
 
-<<<<<<< HEAD
-=======
 .tag-0 {
     font-size: 16pt;
 }
 
->>>>>>> gh-pages
 .tag-1 {
     font-size: 13pt;
 }
@@ -37,11 +34,7 @@ body {
     font-size: 10pt;
 }
 
-<<<<<<< HEAD
-.tag-2 {
-=======
 .tag-3 {
->>>>>>> gh-pages
     font-size: 8pt;
 }
 
@@ -49,8 +42,6 @@ body {
     font-size: 6pt;
 }
 
-<<<<<<< HEAD
-=======
 #aboutme {
     padding-top: 0px;
     padding-bottom: 5px;
@@ -58,7 +49,6 @@ body {
     word-break: normal;
 }
 
->>>>>>> gh-pages
 #sidebar {
     padding-top: 0px;
     -ms-word-break: break-all;
@@ -108,15 +98,12 @@ a, a:hover {
     margin-bottom: 2px;
 }
 
-<<<<<<< HEAD
-=======
 .summary img {
     max-width: 100%;
     height: auto;
 }
 
 
->>>>>>> gh-pages
 .floatright, .align-right {
     float: right;
 }
@@ -153,11 +140,7 @@ figure.floatcenter, .align-center {
     margin-bottom: 11px;
 }
 
-<<<<<<< HEAD
-.highlighttable .code {
-=======
 .highlighttable {
->>>>>>> gh-pages
     width: 100%;
 }
 
@@ -184,8 +167,6 @@ figure.floatcenter, .align-center {
     margin-right: 10px;
 }
 
-<<<<<<< HEAD
-=======
 .tagcloud li {
     padding: 0px;
 }
@@ -240,4 +221,3 @@ figure.floatcenter, .align-center {
         font-size: 16px;
     }
 }
->>>>>>> gh-pages

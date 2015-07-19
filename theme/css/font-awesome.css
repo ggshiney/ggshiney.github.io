@@ -1,22 +1,13 @@
 /*!
-<<<<<<< HEAD
- *  Font Awesome 4.0.3 by @davegandy - http://fontawesome.io - @fontawesome
-=======
  *  Font Awesome 4.1.0 by @davegandy - http://fontawesome.io - @fontawesome
->>>>>>> gh-pages
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
 /* FONT PATH
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-<<<<<<< HEAD
-  src: url('../fonts/fontawesome-webfont.eot?v=4.0.3');
-  src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.0.3') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff?v=4.0.3') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.0.3') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.0.3#fontawesomeregular') format('svg');
-=======
   src: url('../fonts/fontawesome-webfont.eot?v=4.1.0');
   src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.1.0') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff?v=4.1.0') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.1.0') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.1.0#fontawesomeregular') format('svg');
->>>>>>> gh-pages
   font-weight: normal;
   font-style: normal;
 }
@@ -31,11 +22,7 @@
 }
 /* makes the font 33% larger relative to the icon container */
 .fa-lg {
-<<<<<<< HEAD
-  font-size: 1.3333333333333333em;
-=======
   font-size: 1.33333333em;
->>>>>>> gh-pages
   line-height: 0.75em;
   vertical-align: -15%;
 }
@@ -52,20 +39,12 @@
   font-size: 5em;
 }
 .fa-fw {
-<<<<<<< HEAD
-  width: 1.2857142857142858em;
-=======
   width: 1.28571429em;
->>>>>>> gh-pages
   text-align: center;
 }
 .fa-ul {
   padding-left: 0;
-<<<<<<< HEAD
-  margin-left: 2.142857142857143em;
-=======
   margin-left: 2.14285714em;
->>>>>>> gh-pages
   list-style-type: none;
 }
 .fa-ul > li {
@@ -73,15 +52,6 @@
 }
 .fa-li {
   position: absolute;
-<<<<<<< HEAD
-  left: -2.142857142857143em;
-  width: 2.142857142857143em;
-  top: 0.14285714285714285em;
-  text-align: center;
-}
-.fa-li.fa-lg {
-  left: -1.8571428571428572em;
-=======
   left: -2.14285714em;
   width: 2.14285714em;
   top: 0.14285714em;
@@ -89,7 +59,6 @@
 }
 .fa-li.fa-lg {
   left: -1.85714286em;
->>>>>>> gh-pages
 }
 .fa-border {
   padding: .2em .25em .15em;
@@ -138,21 +107,6 @@
     -o-transform: rotate(359deg);
   }
 }
-<<<<<<< HEAD
-@-ms-keyframes spin {
-  0% {
-    -ms-transform: rotate(0deg);
-  }
-  100% {
-    -ms-transform: rotate(359deg);
-  }
-}
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-=======
 @keyframes spin {
   0% {
     -webkit-transform: rotate(0deg);
@@ -160,7 +114,6 @@
   }
   100% {
     -webkit-transform: rotate(359deg);
->>>>>>> gh-pages
     transform: rotate(359deg);
   }
 }
@@ -410,11 +363,8 @@
 .fa-video-camera:before {
   content: "\f03d";
 }
-<<<<<<< HEAD
-=======
 .fa-photo:before,
 .fa-image:before,
->>>>>>> gh-pages
 .fa-picture-o:before {
   content: "\f03e";
 }
@@ -778,11 +728,8 @@
 .fa-square:before {
   content: "\f0c8";
 }
-<<<<<<< HEAD
-=======
 .fa-navicon:before,
 .fa-reorder:before,
->>>>>>> gh-pages
 .fa-bars:before {
   content: "\f0c9";
 }
@@ -842,19 +789,11 @@
   content: "\f0dc";
 }
 .fa-sort-down:before,
-<<<<<<< HEAD
-.fa-sort-asc:before {
-  content: "\f0dd";
-}
-.fa-sort-up:before,
-.fa-sort-desc:before {
-=======
 .fa-sort-desc:before {
   content: "\f0dd";
 }
 .fa-sort-up:before,
 .fa-sort-asc:before {
->>>>>>> gh-pages
   content: "\f0de";
 }
 .fa-envelope:before {
@@ -1044,19 +983,10 @@
 .fa-code:before {
   content: "\f121";
 }
-<<<<<<< HEAD
-.fa-reply-all:before {
-  content: "\f122";
-}
-.fa-mail-reply-all:before {
-  content: "\f122";
-}
-=======
 .fa-mail-reply-all:before,
 .fa-reply-all:before {
   content: "\f122";
 }
->>>>>>> gh-pages
 .fa-star-half-empty:before,
 .fa-star-half-full:before,
 .fa-star-half-o:before {
@@ -1402,8 +1332,6 @@
 .fa-plus-square-o:before {
   content: "\f196";
 }
-<<<<<<< HEAD
-=======
 .fa-space-shuttle:before {
   content: "\f197";
 }
@@ -1636,4 +1564,3 @@
 .fa-bomb:before {
   content: "\f1e2";
 }
->>>>>>> gh-pages

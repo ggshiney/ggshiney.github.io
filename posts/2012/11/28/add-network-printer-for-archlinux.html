@@ -1,37 +1,12 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:og="http://ogp.me/ns#"
-      xmlns:fb="https://www.facebook.com/2008/fbml">
-=======
 <html lang="zh"
 >
->>>>>>> gh-pages
 <head>
     <title>Arch Linux添加网络打印机 - ggshiney blog</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-    
-
-    <!-- Open Graph tags -->
-            <meta property="og:type" content="article"/>
-            <meta property="og:title" content="Arch Linux添加网络打印机"/>
-            <meta property="og:url" content="http://blog.ggshiney.com/posts/2012/11/28/add-network-printer-for-archlinux.html"/>
-            <meta property="og:description" content="终于，实验室买了台高级打印机，可以配置独立的IP地址，支持网络打印。 索性给我这台Arch Linux也配置上网络打印功能。 UNIX/Linux下的打印管理工具CUPS CUPS(Common UNIX Printing System)，是Apple开发的一套UNIX开源打印系统。 Arch下可可以通过CUPS进行打印管理。 安装CUPS很简单： pacman -S cups libcups CPUS安装好后，需要根据打印机安装相应的driver。 我们的HP打印机对应的驱动包hplip，所有的HP打印机都可以使用： pacman -S hplip 之后启动CUPS守护进程，并把CUPS加入启动服务。 systemctl start cups systemctl enable cups CUPS的基本管理功能通过本地web页面进行操作，需要前用户在sys ..."/>
-
-    <!-- Bootstrap -->
-        <link rel="stylesheet" href="http://blog.ggshiney.com/theme/css/bootstrap.min.css" type="text/css"/>
-    <link href="http://blog.ggshiney.com/theme/css/font-awesome.min.css" rel="stylesheet">
-
-    <link href="http://blog.ggshiney.com/theme/css/pygments/native.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://blog.ggshiney.com/theme/css/style.css" type="text/css"/>
-
-        <link href="http://blog.ggshiney.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
-              title="ggshiney blog ATOM Feed"/>
-=======
 
 
 
@@ -59,17 +34,12 @@
     <link href="/theme/css/pygments/native.css" rel="stylesheet">
     <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
 
->>>>>>> gh-pages
 
 </head>
 <body>
 
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-<<<<<<< HEAD
-    <div class="container">
-=======
 	<div class="container">
->>>>>>> gh-pages
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -77,40 +47,24 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-<<<<<<< HEAD
-            <a href="http://blog.ggshiney.com/" class="navbar-brand">
-=======
             <a href="/" class="navbar-brand">
->>>>>>> gh-pages
 ggshiney blog            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-<<<<<<< HEAD
-                         <li><a href="http://blog.ggshiney.com/pages/about.html">
-=======
                          <li><a href="/pages/about.html">
->>>>>>> gh-pages
                              About
                           </a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-<<<<<<< HEAD
-                <li><a href="http://blog.ggshiney.com/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
-=======
               <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
->>>>>>> gh-pages
             </ul>
         </div>
         <!-- /.navbar-collapse -->
     </div>
 </div> <!-- /.navbar -->
-<<<<<<< HEAD
-
-=======
 <!-- Banner -->
 <!-- End Banner -->
->>>>>>> gh-pages
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
@@ -119,11 +73,7 @@ ggshiney blog            </a>
         <article>
             <header class="page-header">
                 <h1>
-<<<<<<< HEAD
-                    <a href="http://blog.ggshiney.com/posts/2012/11/28/add-network-printer-for-archlinux.html"
-=======
                     <a href="/posts/2012/11/28/add-network-printer-for-archlinux.html"
->>>>>>> gh-pages
                        rel="bookmark"
                        title="Permalink to Arch Linux添加网络打印机">
                         Arch Linux添加网络打印机
@@ -136,21 +86,13 @@ ggshiney blog            </a>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-<<<<<<< HEAD
-        <i class="fa fa-calendar"></i><time datetime="2012-11-28T20:19:17"> Wed 28 November 2012</time>
-=======
         <i class="fa fa-calendar"></i><time datetime="2012-11-28T20:19:17+08:00"> 三 28 十一月 2012</time>
->>>>>>> gh-pages
     </span>
 
 
 
 <span class="label label-default">Tags</span>
-<<<<<<< HEAD
-	<a href="http://blog.ggshiney.com/tag/archlinux.html">ArchLinux</a>
-=======
 	<a href="/tag/archlinux.html">ArchLinux</a>
->>>>>>> gh-pages
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
@@ -160,41 +102,24 @@ ggshiney blog            </a>
 <p><a href="http://www.cups.org">CUPS</a>(Common UNIX Printing System)，是Apple开发的一套UNIX开源打印系统。
 Arch下可可以通过<code>CUPS</code>进行打印管理。</p>
 <p>安装<code>CUPS</code>很简单：</p>
-<<<<<<< HEAD
-<div class="highlight"><pre><span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="n">cups</span> <span class="n">libcups</span>
-=======
 <div class="highlight"><pre>pacman -S cups libcups
->>>>>>> gh-pages
 </pre></div>
 
 
 <p><code>CPUS</code>安装好后，需要根据打印机安装相应的driver。
 我们的HP打印机对应的驱动包<code>hplip</code>，所有的HP打印机都可以使用：</p>
-<<<<<<< HEAD
-<div class="highlight"><pre><span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="n">hplip</span>
-=======
 <div class="highlight"><pre>pacman -S hplip
->>>>>>> gh-pages
 </pre></div>
 
 
 <p>之后启动<code>CUPS</code>守护进程，并把<code>CUPS</code>加入启动服务。</p>
-<<<<<<< HEAD
-<div class="highlight"><pre><span class="n">systemctl</span> <span class="n">start</span> <span class="n">cups</span>
-<span class="n">systemctl</span> <span class="n">enable</span> <span class="n">cups</span>
-=======
 <div class="highlight"><pre>systemctl start cups
 systemctl enable cups
->>>>>>> gh-pages
 </pre></div>
 
 
 <p><code>CUPS</code>的基本管理功能通过本地web页面进行操作，需要前用户在<code>sys</code>组，在这里临时把当前用户加入<code>sys</code>：</p>
-<<<<<<< HEAD
-<div class="highlight"><pre><span class="n">usermod</span> <span class="o">-</span><span class="n">aG</span> <span class="n">sys</span> <span class="p">[</span><span class="n">USERNAME</span><span class="p">]</span>
-=======
 <div class="highlight"><pre>usermod -aG sys [USERNAME]
->>>>>>> gh-pages
 </pre></div>
 
 
@@ -209,55 +134,6 @@ systemctl enable cups
     </section>
 
         </div>
-<<<<<<< HEAD
-        <div class="col-sm-3 well well-sm" id="sidebar">
-
-<aside>
-    <section>
-        <ul class="list-group list-group-flush">
-                <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
-                  <ul class="list-group" id="social">
-                    <li class="list-group-item"><a href="http://twitter.com/ggshiney"><i
-                            class="fa fa-twitter-square fa-lg"></i> twitter
-                    </a></li>
-                    <li class="list-group-item"><a href="http://github.com/ggshiney"><i
-                            class="fa fa-github-square fa-lg"></i> github
-                    </a></li>
-                  </ul>
-                </li>
-
-
-
-                <li class="list-group-item"><a href="http://blog.ggshiney.com/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
-                    <ul class="list-group" id="tags">
-                        <li class="list-group-item tag-1">
-                            <a href="http://blog.ggshiney.com/tag/archlinux.html">
-                                ArchLinux
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-1">
-                            <a href="http://blog.ggshiney.com/tag/mac-os.html">
-                                Mac OS
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="http://blog.ggshiney.com/tag/vim.html">
-                                vim
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="http://blog.ggshiney.com/tag/ubuntu.html">
-                                Ubuntu
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="http://blog.ggshiney.com/tag/shell.html">
-                                shell
-                            </a>
-                        </li>
-                    </ul>
-                </li>    
-=======
         <div class="col-sm-3" id="sidebar">
             <aside>
 
@@ -276,7 +152,6 @@ systemctl enable cups
                 <ul class="list-group " id="tags">
                 </ul>
             </li>
->>>>>>> gh-pages
     <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
       <ul class="list-group" id="links">
         <li class="list-group-item">
@@ -296,29 +171,17 @@ systemctl enable cups
         </li>
       </ul>
     </li>
-<<<<<<< HEAD
-
-        </ul>
-    </section>
-
-</aside>        </div>
-=======
     </ul>
 </section>
             </aside>
         </div>
->>>>>>> gh-pages
     </div>
 </div>
 <footer>
    <div class="container">
       <hr>
       <div class="row">
-<<<<<<< HEAD
-         <div class="col-xs-10">&copy; 2013 ggshiney
-=======
          <div class="col-xs-10">&copy; 2015 ggshiney
->>>>>>> gh-pages
             &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
@@ -326,15 +189,6 @@ systemctl enable cups
       </div>
    </div>
 </footer>
-<<<<<<< HEAD
-<script src="http://code.jquery.com/jquery.js"></script>
-
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="http://blog.ggshiney.com/theme/js/bootstrap.min.js"></script>
-
-<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
-<script src="http://blog.ggshiney.com/theme/js/respond.min.js"></script>
-=======
 <script src="/theme/js/jquery.min.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -343,7 +197,6 @@ systemctl enable cups
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
 <script src="/theme/js/respond.min.js"></script>
 
->>>>>>> gh-pages
 
 </body>
 </html>
