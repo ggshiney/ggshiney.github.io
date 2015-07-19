@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>ggshiney blog</title><link href="http://blog.ggshiney.com/" rel="alternate"></link><link href="http://blog.ggshiney.com/feeds/ggshiney.atom.xml" rel="self"></link><id>http://blog.ggshiney.com/</id><updated>2015-07-19T21:34:55+08:00</updated><entry><title>Resurrection for this Blog</title><link href="http://blog.ggshiney.com/posts/2015/07/19/resurrection-for-this-blog.html" rel="alternate"></link><updated>2015-07-19T21:34:55+08:00</updated><author><name>ggshiney</name></author><id>tag:blog.ggshiney.com,2015-07-19:posts/2015/07/19/resurrection-for-this-blog.html</id><summary type="html">&lt;p&gt;翻阅了一下，上次Blog写作还要追溯到近2年前，期间由于毕业求职繁忙就将Blog搁置了。
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ggshiney blog</title><link href="/" rel="alternate"></link><link href="/feeds/ggshiney.atom.xml" rel="self"></link><id>/</id><updated>2015-07-19T21:34:55+08:00</updated><entry><title>Resurrection for this Blog</title><link href="/posts/2015/07/19/resurrection-for-this-blog.html" rel="alternate"></link><updated>2015-07-19T21:34:55+08:00</updated><author><name>ggshiney</name></author><id>tag:,2015-07-19:posts/2015/07/19/resurrection-for-this-blog.html</id><summary type="html">&lt;p&gt;翻阅了一下，上次Blog写作还要追溯到近2年前，期间由于毕业求职繁忙就将Blog搁置了。
 每年域名续费而不善加利用，想想就此荒废了未免可惜，现在重新拾起。
 希望平时多记录一些学习心得与工作中的思考。&lt;/p&gt;
 &lt;p&gt;说到Blog，目前写作这篇文章时Blog是采用&lt;a href="https://pages.github.com/"&gt;Github Pages&lt;/a&gt;服务托管的静态页面。
@@ -10,7 +10,7 @@
 怎奈作为Python党的一员，一直对基于Ruby的Jekyll-Octopress心存怨念，所幸发现了&lt;a href="http://blog.getpelican.com/"&gt;pelican&lt;/a&gt;这个python替代品。
 此后我的Blog便一直是pelican渲染生成与维护的。广大前端工程师如今也有了自己的Octopress: &lt;a href="http://hexo.io/"&gt;hexo&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;当然 ，其实世界远比想象得大，比如参看以下这个&lt;a href="https://staticsitegenerators.net/"&gt;https://staticsitegenerators.net/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;这篇文章作为Blog重启后的第一篇，抛砖引玉，希望之后坚持写作习惯。&lt;/p&gt;</summary></entry><entry><title>Ubuntu配置PPTP VPN</title><link href="http://blog.ggshiney.com/posts/2013/05/13/pptp-vpn-on-ubuntu.html" rel="alternate"></link><updated>2013-05-13T18:20:12+08:00</updated><author><name>ggshiney</name></author><id>tag:blog.ggshiney.com,2013-05-13:posts/2013/05/13/pptp-vpn-on-ubuntu.html</id><summary type="html">&lt;p&gt;接手一台新服务器，简单记录一下pptp vpn加ufw防火墙在ubuntu上的设置。
+&lt;p&gt;这篇文章作为Blog重启后的第一篇，抛砖引玉，希望之后坚持写作习惯。&lt;/p&gt;</summary></entry><entry><title>Ubuntu配置PPTP VPN</title><link href="/posts/2013/05/13/pptp-vpn-on-ubuntu.html" rel="alternate"></link><updated>2013-05-13T18:20:12+08:00</updated><author><name>ggshiney</name></author><id>tag:,2013-05-13:posts/2013/05/13/pptp-vpn-on-ubuntu.html</id><summary type="html">&lt;p&gt;接手一台新服务器，简单记录一下pptp vpn加ufw防火墙在ubuntu上的设置。
 这样学校范围内就能实现手机通过vpn免费上网了。
 同样，在校外也可以通过vpn访问校园网资源。&lt;/p&gt;
 &lt;h2&gt;配置PPTP&lt;/h2&gt;
@@ -105,7 +105,7 @@ service pptpd restart
 
 &lt;p&gt;至此pptp vpn的服务器端配置完毕。&lt;/p&gt;
 &lt;h2&gt;参考&lt;/h2&gt;
-&lt;p&gt;&lt;a href="http://silverlinux.blogspot.com/2012/05/how-to-pptp-vpn-on-ubuntu-1204-pptpd.html"&gt;http://silverlinux.blogspot.com/2012/05/how-to-pptp-vpn-on-ubuntu-1204-pptpd.html&lt;/a&gt;&lt;/p&gt;</summary><category term="Ubuntu"></category></entry><entry><title>Arch Linux添加网络打印机</title><link href="http://blog.ggshiney.com/posts/2012/11/28/add-network-printer-for-archlinux.html" rel="alternate"></link><updated>2012-11-28T20:19:17+08:00</updated><author><name>ggshiney</name></author><id>tag:blog.ggshiney.com,2012-11-28:posts/2012/11/28/add-network-printer-for-archlinux.html</id><summary type="html">&lt;p&gt;终于，实验室买了台高级打印机，可以配置独立的IP地址，支持网络打印。
+&lt;p&gt;&lt;a href="http://silverlinux.blogspot.com/2012/05/how-to-pptp-vpn-on-ubuntu-1204-pptpd.html"&gt;http://silverlinux.blogspot.com/2012/05/how-to-pptp-vpn-on-ubuntu-1204-pptpd.html&lt;/a&gt;&lt;/p&gt;</summary><category term="Ubuntu"></category></entry><entry><title>Arch Linux添加网络打印机</title><link href="/posts/2012/11/28/add-network-printer-for-archlinux.html" rel="alternate"></link><updated>2012-11-28T20:19:17+08:00</updated><author><name>ggshiney</name></author><id>tag:,2012-11-28:posts/2012/11/28/add-network-printer-for-archlinux.html</id><summary type="html">&lt;p&gt;终于，实验室买了台高级打印机，可以配置独立的IP地址，支持网络打印。
 索性给我这台Arch Linux也配置上网络打印功能。&lt;/p&gt;
 &lt;h2&gt;UNIX/Linux下的打印管理工具&lt;code&gt;CUPS&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a href="http://www.cups.org"&gt;CUPS&lt;/a&gt;(Common UNIX Printing System)，是Apple开发的一套UNIX开源打印系统。
@@ -136,7 +136,7 @@ systemctl enable cups
 &lt;p&gt;UI做的比较简洁，直接到&lt;code&gt;Administration&lt;/code&gt;页面&lt;code&gt;Add Printer&lt;/code&gt;即可。
 配置好后打印时就能看到刚刚添加的打印机了。&lt;/p&gt;
 &lt;h2&gt;参考&lt;/h2&gt;
-&lt;p&gt;&lt;a href="https://wiki.archlinux.org/index.php/Cups"&gt;https://wiki.archlinux.org/index.php/Cups&lt;/a&gt;&lt;/p&gt;</summary><category term="ArchLinux"></category></entry><entry><title>Mac OS下的文件扩展属性</title><link href="http://blog.ggshiney.com/posts/2012/11/22/file-extended-attributes-in-mac-os.html" rel="alternate"></link><updated>2012-11-22T20:36:52+08:00</updated><author><name>ggshiney</name></author><id>tag:blog.ggshiney.com,2012-11-22:posts/2012/11/22/file-extended-attributes-in-mac-os.html</id><summary type="html">&lt;h2&gt;恼人的&lt;code&gt;@&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://wiki.archlinux.org/index.php/Cups"&gt;https://wiki.archlinux.org/index.php/Cups&lt;/a&gt;&lt;/p&gt;</summary><category term="ArchLinux"></category></entry><entry><title>Mac OS下的文件扩展属性</title><link href="/posts/2012/11/22/file-extended-attributes-in-mac-os.html" rel="alternate"></link><updated>2012-11-22T20:36:52+08:00</updated><author><name>ggshiney</name></author><id>tag:,2012-11-22:posts/2012/11/22/file-extended-attributes-in-mac-os.html</id><summary type="html">&lt;h2&gt;恼人的&lt;code&gt;@&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;在mac下&lt;code&gt;ls -l&lt;/code&gt;，常常看到9位文件权限后面跟着一个&lt;code&gt;@&lt;/code&gt;符号，这货是干啥的？&lt;/p&gt;
 &lt;p&gt;原来，这就是mac文件系统的扩展属性。通过一些mac下的软件、工具操作文件后往往会给文件附加上扩展属性，而只通过&lt;code&gt;Terminal&lt;/code&gt;进行的一般文件操作则不会附加上这些属性。&lt;/p&gt;
 &lt;p&gt;但是扩展属性可能导致一些常见的操作在其他文件系统下产生多余文件，比如&lt;code&gt;tar&lt;/code&gt;。&lt;/p&gt;
@@ -152,7 +152,7 @@ systemctl enable cups
 
 &lt;p&gt;之后可以用&lt;code&gt;xattr&lt;/code&gt;删除之：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;xattr -d com.apple.TextEncoding filename.test
-&lt;/pre&gt;&lt;/div&gt;</summary><category term="Mac OS"></category></entry><entry><title>Arch Linux配置双屏</title><link href="http://blog.ggshiney.com/posts/2012/11/14/config-dual-monitor-for-archlinux.html" rel="alternate"></link><updated>2012-11-14T20:27:19+08:00</updated><author><name>ggshiney</name></author><id>tag:blog.ggshiney.com,2012-11-14:posts/2012/11/14/config-dual-monitor-for-archlinux.html</id><summary type="html">&lt;h2&gt;前言&lt;/h2&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="Mac OS"></category></entry><entry><title>Arch Linux配置双屏</title><link href="/posts/2012/11/14/config-dual-monitor-for-archlinux.html" rel="alternate"></link><updated>2012-11-14T20:27:19+08:00</updated><author><name>ggshiney</name></author><id>tag:,2012-11-14:posts/2012/11/14/config-dual-monitor-for-archlinux.html</id><summary type="html">&lt;h2&gt;前言&lt;/h2&gt;
 &lt;p&gt;实验室设备更新，捡来块有VGA+DVI双接口的Nvdia显卡。自己的老机器用的是集成显卡，便打算给自己的机器升级配置双显示屏。&lt;/p&gt;
 &lt;h2&gt;配置双屏显示&lt;/h2&gt;
 &lt;h3&gt;安装新显卡&lt;/h3&gt;
@@ -249,8 +249,8 @@ EndSection
 
 &lt;h2&gt;参考&lt;/h2&gt;
 &lt;p&gt;&lt;a href="https://wiki.archlinux.org/index.php/DualScreen"&gt;https://wiki.archlinux.org/index.php/DualScreen&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://ianmarmour.com/2012/01/22/setting-up-dual-monitors-on-xfce-arch-linux/"&gt;http://ianmarmour.com/2012/01/22/setting-up-dual-monitors-on-xfce-arch-linux/&lt;/a&gt;&lt;/p&gt;</summary><category term="ArchLinux"></category></entry><entry><title>Tar in Mac OS X</title><link href="http://blog.ggshiney.com/posts/2012/10/31/tar-in-mac-os-x.html" rel="alternate"></link><updated>2012-10-31T20:21:59+08:00</updated><author><name>ggshiney</name></author><id>tag:blog.ggshiney.com,2012-10-31:posts/2012/10/31/tar-in-mac-os-x.html</id><summary type="html">&lt;p&gt;近来在做&lt;a href="http://openhatch.org/"&gt;OpenHatch&lt;/a&gt;，新手任务里面提到了tar命令在Mac OS X下的一个小tip。&lt;/p&gt;
-&lt;p&gt;通常在Mac OS X下会产程很多以&lt;code&gt;._&lt;/code&gt;开始的隐藏文件，在打tar包的时候往往也会包含进去。如果要把这些隐藏文件排除在外则，可以增加一个环境变量&lt;code&gt;COPYFILE_DISABLE=true&lt;/code&gt;。&lt;/p&gt;</summary><category term="Mac OS"></category></entry><entry><title>Unix Tool: time</title><link href="http://blog.ggshiney.com/posts/2012/09/02/unix-tool-time.html" rel="alternate"></link><updated>2012-09-02T19:35:39+08:00</updated><author><name>ggshiney</name></author><id>tag:blog.ggshiney.com,2012-09-02:posts/2012/09/02/unix-tool-time.html</id><summary type="html">&lt;h2&gt;统计程序执行时间：time&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://ianmarmour.com/2012/01/22/setting-up-dual-monitors-on-xfce-arch-linux/"&gt;http://ianmarmour.com/2012/01/22/setting-up-dual-monitors-on-xfce-arch-linux/&lt;/a&gt;&lt;/p&gt;</summary><category term="ArchLinux"></category></entry><entry><title>Tar in Mac OS X</title><link href="/posts/2012/10/31/tar-in-mac-os-x.html" rel="alternate"></link><updated>2012-10-31T20:21:59+08:00</updated><author><name>ggshiney</name></author><id>tag:,2012-10-31:posts/2012/10/31/tar-in-mac-os-x.html</id><summary type="html">&lt;p&gt;近来在做&lt;a href="http://openhatch.org/"&gt;OpenHatch&lt;/a&gt;，新手任务里面提到了tar命令在Mac OS X下的一个小tip。&lt;/p&gt;
+&lt;p&gt;通常在Mac OS X下会产程很多以&lt;code&gt;._&lt;/code&gt;开始的隐藏文件，在打tar包的时候往往也会包含进去。如果要把这些隐藏文件排除在外则，可以增加一个环境变量&lt;code&gt;COPYFILE_DISABLE=true&lt;/code&gt;。&lt;/p&gt;</summary><category term="Mac OS"></category></entry><entry><title>Unix Tool: time</title><link href="/posts/2012/09/02/unix-tool-time.html" rel="alternate"></link><updated>2012-09-02T19:35:39+08:00</updated><author><name>ggshiney</name></author><id>tag:,2012-09-02:posts/2012/09/02/unix-tool-time.html</id><summary type="html">&lt;h2&gt;统计程序执行时间：time&lt;/h2&gt;
 &lt;p&gt;近来做了些性能测试的工作，基本指标便是某一操作的执行时间。&lt;/p&gt;
 &lt;p&gt;Unix提供了一个简单获取程序执行时间的小工具&lt;code&gt;time&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;基本使用方法：&lt;/p&gt;
@@ -294,7 +294,7 @@ sys     0m0.000s
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;上述两个&lt;code&gt;time&lt;/code&gt;的输出处理有些区别，这是由于shell在处理&lt;/p&gt;</summary><category term="shell"></category></entry><entry><title>Vim中构造递增序列</title><link href="http://blog.ggshiney.com/posts/2012/05/28/make-an-increasing-list-in-vim.html" rel="alternate"></link><updated>2012-05-28T18:58:17+08:00</updated><author><name>ggshiney</name></author><id>tag:blog.ggshiney.com,2012-05-28:posts/2012/05/28/make-an-increasing-list-in-vim.html</id><summary type="html">&lt;p&gt;近日写爬虫遇到了个有趣的小需求：在构造初始URL列表的时候发现URL序列中的某个子串是个递增序列。上千行的数据自然不能手动一一键入，做为vim党首先要思考有没有什么简便的解决途径。&lt;/p&gt;
+&lt;p&gt;上述两个&lt;code&gt;time&lt;/code&gt;的输出处理有些区别，这是由于shell在处理&lt;/p&gt;</summary><category term="shell"></category></entry><entry><title>Vim中构造递增序列</title><link href="/posts/2012/05/28/make-an-increasing-list-in-vim.html" rel="alternate"></link><updated>2012-05-28T18:58:17+08:00</updated><author><name>ggshiney</name></author><id>tag:,2012-05-28:posts/2012/05/28/make-an-increasing-list-in-vim.html</id><summary type="html">&lt;p&gt;近日写爬虫遇到了个有趣的小需求：在构造初始URL列表的时候发现URL序列中的某个子串是个递增序列。上千行的数据自然不能手动一一键入，做为vim党首先要思考有没有什么简便的解决途径。&lt;/p&gt;
 &lt;h2&gt;递增与递减&lt;/h2&gt;
 &lt;p&gt;vim中有这样一对Key-map:&lt;code&gt;&amp;lt;C-a&amp;gt;&lt;/code&gt;和&lt;code&gt;&amp;lt;C-x&amp;gt;&lt;/code&gt;：&lt;code&gt;&amp;lt;C-a&amp;gt;&lt;/code&gt;用于将下一个数字递增1，&lt;code&gt;&amp;lt;C-x&amp;gt;&lt;/code&gt;用于将下一个数字递减1。&lt;/p&gt;
 &lt;p&gt;与大多数的vim命令一样，键入数字后再接命令则表示重复执行多次该命令。比如&lt;code&gt;5&amp;lt;C-a&amp;gt;&lt;/code&gt;将下一个数字递增5。&lt;/p&gt;

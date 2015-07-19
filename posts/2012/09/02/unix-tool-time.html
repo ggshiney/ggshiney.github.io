@@ -10,7 +10,7 @@
 
 
 
-<link rel="canonical" href="http://blog.ggshiney.com/posts/2012/09/02/unix-tool-time.html">
+<link rel="canonical" href="/posts/2012/09/02/unix-tool-time.html">
 
         <meta name="author" content="ggshiney" />
         <meta name="keywords" content="shell" />
@@ -19,7 +19,7 @@
         <meta property="og:site_name" content="ggshiney blog" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Unix Tool: time"/>
-        <meta property="og:url" content="http://blog.ggshiney.com/posts/2012/09/02/unix-tool-time.html"/>
+        <meta property="og:url" content="/posts/2012/09/02/unix-tool-time.html"/>
         <meta property="og:description" content="统计程序执行时间：time 近来做了些性能测试的工作，基本指标便是某一操作的执行时间。 Unix提供了一个简单获取程序执行时间的小工具time。 基本使用方法： time &lt;command&gt; [arguments] 简单地说，就是在需要获取时间的程序命令前面加上time。统计输出三个执行时间，精确到ms。 不妨看看sleep1秒的各项执行统计时间： $time sleep 1 real 0m1.024s user 0m0.001s real为程序开始执行到执行结束总耗时； user为程序在操作系统用户态的cpu执行时间； sys为程序在操作系统内核态的cpu执行时间； 由于程序在执行时除了cpu处理指令外往往会产生io或其他开销，这部分耗时都计算在real中，因此user与sys之和往往小于real。 两个time命令 实际上在Unix中不仅仅只有一个time，可以通过type查看到所有time命令的类型： $type -a time time is a shell keyword time ..."/>
         <meta property="article:published_time" content="2012-09-02" />
             <meta property="article:section" content="shell" />
@@ -28,14 +28,12 @@
 
 
     <!-- Bootstrap -->
-        <link rel="stylesheet" href="http://blog.ggshiney.com/theme/css/bootstrap.min.css" type="text/css"/>
-    <link href="http://blog.ggshiney.com/theme/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
 
-    <link href="http://blog.ggshiney.com/theme/css/pygments/native.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://blog.ggshiney.com/theme/css/style.css" type="text/css"/>
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
 
-        <link href="http://blog.ggshiney.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
-              title="ggshiney blog ATOM Feed"/>
 
 </head>
 <body>
@@ -49,17 +47,17 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="http://blog.ggshiney.com/" class="navbar-brand">
+            <a href="/" class="navbar-brand">
 ggshiney blog            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                         <li><a href="http://blog.ggshiney.com/pages/about.html">
+                         <li><a href="/pages/about.html">
                              About
                           </a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="http://blog.ggshiney.com/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+              <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -75,7 +73,7 @@ ggshiney blog            </a>
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="http://blog.ggshiney.com/posts/2012/09/02/unix-tool-time.html"
+                    <a href="/posts/2012/09/02/unix-tool-time.html"
                        rel="bookmark"
                        title="Permalink to Unix Tool: time">
                         Unix Tool: time
@@ -94,7 +92,7 @@ ggshiney blog            </a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="http://blog.ggshiney.com/tag/shell.html">shell</a>
+	<a href="/tag/shell.html">shell</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
@@ -163,7 +161,7 @@ sys     0m0.000s
 
 
 
-            <li class="list-group-item"><a href="http://blog.ggshiney.com/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+            <li class="list-group-item"><a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
                 </ul>
             </li>
@@ -204,13 +202,13 @@ sys     0m0.000s
       </div>
    </div>
 </footer>
-<script src="http://blog.ggshiney.com/theme/js/jquery.min.js"></script>
+<script src="/theme/js/jquery.min.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="http://blog.ggshiney.com/theme/js/bootstrap.min.js"></script>
+<script src="/theme/js/bootstrap.min.js"></script>
 
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
-<script src="http://blog.ggshiney.com/theme/js/respond.min.js"></script>
+<script src="/theme/js/respond.min.js"></script>
 
 
 </body>
