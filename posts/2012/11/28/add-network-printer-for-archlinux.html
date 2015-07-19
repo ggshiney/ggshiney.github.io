@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh"
+>
+<head>
+    <title>Arch Linux添加网络打印机 - ggshiney blog</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="http://blog.ggshiney.com/posts/2012/11/28/add-network-printer-for-archlinux.html">
+
+        <meta name="author" content="ggshiney" />
+        <meta name="keywords" content="ArchLinux" />
+        <meta name="description" content="终于，实验室买了台高级打印机，可以配置独立的IP地址，支持网络打印。 索性给我这台Arch Linux也配置上网络打印功能。 UNIX/Linux下的打印管理工具CUPS CUPS(Common UNIX Printing System)，是Apple开发的一套UNIX开源打印系统。 Arch下可可以通过CUPS进行打印管理。 安装CUPS很简单： pacman -S cups libcups CPUS安装好后，需要根据打印机安装相应的driver。 我们的HP打印机对应的驱动包hplip，所有的HP打印机都可以使用： pacman -S hplip 之后启动CUPS守护进程，并把CUPS加入启动服务。 systemctl start cups systemctl enable cups CUPS的基本管理功能通过本地web页面进行操作，需要前用户在sys ..." />
+
+        <meta property="og:site_name" content="ggshiney blog" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Arch Linux添加网络打印机"/>
+        <meta property="og:url" content="http://blog.ggshiney.com/posts/2012/11/28/add-network-printer-for-archlinux.html"/>
+        <meta property="og:description" content="终于，实验室买了台高级打印机，可以配置独立的IP地址，支持网络打印。 索性给我这台Arch Linux也配置上网络打印功能。 UNIX/Linux下的打印管理工具CUPS CUPS(Common UNIX Printing System)，是Apple开发的一套UNIX开源打印系统。 Arch下可可以通过CUPS进行打印管理。 安装CUPS很简单： pacman -S cups libcups CPUS安装好后，需要根据打印机安装相应的driver。 我们的HP打印机对应的驱动包hplip，所有的HP打印机都可以使用： pacman -S hplip 之后启动CUPS守护进程，并把CUPS加入启动服务。 systemctl start cups systemctl enable cups CUPS的基本管理功能通过本地web页面进行操作，需要前用户在sys ..."/>
+        <meta property="article:published_time" content="2012-11-28" />
+            <meta property="article:section" content="Walkthrough" />
+            <meta property="article:tag" content="ArchLinux" />
+            <meta property="article:author" content="ggshiney" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://blog.ggshiney.com/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="http://blog.ggshiney.com/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://blog.ggshiney.com/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://blog.ggshiney.com/theme/css/style.css" type="text/css"/>
+
+        <link href="http://blog.ggshiney.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="ggshiney blog ATOM Feed"/>
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://blog.ggshiney.com/" class="navbar-brand">
+ggshiney blog            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="http://blog.ggshiney.com/pages/about.html">
+                             About
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="http://blog.ggshiney.com/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://blog.ggshiney.com/posts/2012/11/28/add-network-printer-for-archlinux.html"
+                       rel="bookmark"
+                       title="Permalink to Arch Linux添加网络打印机">
+                        Arch Linux添加网络打印机
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2012-11-28T20:19:17+08:00"> 三 28 十一月 2012</time>
+    </span>
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://blog.ggshiney.com/tag/archlinux.html">ArchLinux</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>终于，实验室买了台高级打印机，可以配置独立的IP地址，支持网络打印。
+索性给我这台Arch Linux也配置上网络打印功能。</p>
+<h2>UNIX/Linux下的打印管理工具<code>CUPS</code></h2>
+<p><a href="http://www.cups.org">CUPS</a>(Common UNIX Printing System)，是Apple开发的一套UNIX开源打印系统。
+Arch下可可以通过<code>CUPS</code>进行打印管理。</p>
+<p>安装<code>CUPS</code>很简单：</p>
+<div class="highlight"><pre>pacman -S cups libcups
+</pre></div>
+
+
+<p><code>CPUS</code>安装好后，需要根据打印机安装相应的driver。
+我们的HP打印机对应的驱动包<code>hplip</code>，所有的HP打印机都可以使用：</p>
+<div class="highlight"><pre>pacman -S hplip
+</pre></div>
+
+
+<p>之后启动<code>CUPS</code>守护进程，并把<code>CUPS</code>加入启动服务。</p>
+<div class="highlight"><pre>systemctl start cups
+systemctl enable cups
+</pre></div>
+
+
+<p><code>CUPS</code>的基本管理功能通过本地web页面进行操作，需要前用户在<code>sys</code>组，在这里临时把当前用户加入<code>sys</code>：</p>
+<div class="highlight"><pre>usermod -aG sys [USERNAME]
+</pre></div>
+
+
+<p>打开浏览器<a href="http://localhost:631">http://localhost:631</a>，就可以看到<code>CUPS</code>的配置页面了。</p>
+<p>UI做的比较简洁，直接到<code>Administration</code>页面<code>Add Printer</code>即可。
+配置好后打印时就能看到刚刚添加的打印机了。</p>
+<h2>参考</h2>
+<p><a href="https://wiki.archlinux.org/index.php/Cups">https://wiki.archlinux.org/index.php/Cups</a></p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+              <ul class="list-group" id="social">
+                <li class="list-group-item"><a href="http://twitter.com/ggshiney"><i class="fa fa-twitter-square fa-lg"></i> twitter</a></li>
+                <li class="list-group-item"><a href="http://github.com/ggshiney"><i class="fa fa-github-square fa-lg"></i> github</a></li>
+              </ul>
+            </li>
+
+
+
+            <li class="list-group-item"><a href="http://blog.ggshiney.com/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group " id="tags">
+                </ul>
+            </li>
+    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+      <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://getpelican.com/" target="_blank">
+                Pelican
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="http://python.org/" target="_blank">
+                Python.org
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="http://jinja.pocoo.org/" target="_blank">
+                Jinja2
+            </a>
+        </li>
+      </ul>
+    </li>
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2015 ggshiney
+            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://blog.ggshiney.com/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://blog.ggshiney.com/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://blog.ggshiney.com/theme/js/respond.min.js"></script>
+
+
+</body>
+</html>

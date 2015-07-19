@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh"
+>
+<head>
+    <title>Ubuntu配置PPTP VPN - ggshiney blog</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="http://blog.ggshiney.com/posts/2013/05/13/pptp-vpn-on-ubuntu.html">
+
+        <meta name="author" content="ggshiney" />
+        <meta name="keywords" content="Ubuntu" />
+        <meta name="description" content="接手一台新服务器，简单记录一下pptp vpn加ufw防火墙在ubuntu上的设置。 这样学校范围内就能实现手机通过vpn免费上网了。 同样，在校外也可以通过vpn访问校园网资源。 配置PPTP 安装pptpd软件包： apt-get install pptpd 编辑/etc/pptpd.conf配置文件： 修改其中的localip为pptp服务端的vpn网关ip，remoteip为pptp客户端分配的ip地址范围。 localip 192.168.100.1 remoteip 192.168.100.101-110 编辑/etc/ppp/pptpd-options： 修改ms-dns字段，当使用windows pptp客户端时获取的DNS。 其实我只为了服务一台iphone，这里并不需要设置。 ms-dns 114.114.114.114 编辑/etc/ppp/chap-secrets： 对应的四个字段为客户端连接时使用的用户名、服务、密码、ip ..." />
+
+        <meta property="og:site_name" content="ggshiney blog" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Ubuntu配置PPTP VPN"/>
+        <meta property="og:url" content="http://blog.ggshiney.com/posts/2013/05/13/pptp-vpn-on-ubuntu.html"/>
+        <meta property="og:description" content="接手一台新服务器，简单记录一下pptp vpn加ufw防火墙在ubuntu上的设置。 这样学校范围内就能实现手机通过vpn免费上网了。 同样，在校外也可以通过vpn访问校园网资源。 配置PPTP 安装pptpd软件包： apt-get install pptpd 编辑/etc/pptpd.conf配置文件： 修改其中的localip为pptp服务端的vpn网关ip，remoteip为pptp客户端分配的ip地址范围。 localip 192.168.100.1 remoteip 192.168.100.101-110 编辑/etc/ppp/pptpd-options： 修改ms-dns字段，当使用windows pptp客户端时获取的DNS。 其实我只为了服务一台iphone，这里并不需要设置。 ms-dns 114.114.114.114 编辑/etc/ppp/chap-secrets： 对应的四个字段为客户端连接时使用的用户名、服务、密码、ip ..."/>
+        <meta property="article:published_time" content="2013-05-13" />
+            <meta property="article:section" content="Walkthrough" />
+            <meta property="article:tag" content="Ubuntu" />
+            <meta property="article:author" content="ggshiney" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://blog.ggshiney.com/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="http://blog.ggshiney.com/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://blog.ggshiney.com/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://blog.ggshiney.com/theme/css/style.css" type="text/css"/>
+
+        <link href="http://blog.ggshiney.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="ggshiney blog ATOM Feed"/>
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://blog.ggshiney.com/" class="navbar-brand">
+ggshiney blog            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="http://blog.ggshiney.com/pages/about.html">
+                             About
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="http://blog.ggshiney.com/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://blog.ggshiney.com/posts/2013/05/13/pptp-vpn-on-ubuntu.html"
+                       rel="bookmark"
+                       title="Permalink to Ubuntu配置PPTP VPN">
+                        Ubuntu配置PPTP VPN
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2013-05-13T18:20:12+08:00"> 一 13 五月 2013</time>
+    </span>
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://blog.ggshiney.com/tag/ubuntu.html">Ubuntu</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>接手一台新服务器，简单记录一下pptp vpn加ufw防火墙在ubuntu上的设置。
+这样学校范围内就能实现手机通过vpn免费上网了。
+同样，在校外也可以通过vpn访问校园网资源。</p>
+<h2>配置PPTP</h2>
+<p>安装pptpd软件包：</p>
+<div class="highlight"><pre>apt-get install pptpd
+</pre></div>
+
+
+<p>编辑<code>/etc/pptpd.conf</code>配置文件：
+修改其中的localip为pptp服务端的vpn网关ip，remoteip为pptp客户端分配的ip地址范围。</p>
+<div class="highlight"><pre>localip 192.168.100.1
+remoteip 192.168.100.101-110
+</pre></div>
+
+
+<p>编辑<code>/etc/ppp/pptpd-options</code>：
+修改ms-dns字段，当使用windows pptp客户端时获取的DNS。
+其实我只为了服务一台iphone，这里并不需要设置。</p>
+<div class="highlight"><pre>ms-dns 114.114.114.114
+</pre></div>
+
+
+<p>编辑<code>/etc/ppp/chap-secrets</code>：
+对应的四个字段为客户端连接时使用的用户名、服务、密码、ip。
+服务名对应<code>pptpd-options</code>中的对应字段值，如默认则为<code>pptpd</code>。
+ip地址设置<code>*</code>为允许任意来源。</p>
+<div class="highlight"><pre>[USERNAME]    pptpd    [PASSWORD]    *
+</pre></div>
+
+
+<p>编辑<code>/etc/sysctl.conf</code>：开启路由转发。</p>
+<div class="highlight"><pre>net.ipv4.ip_forward=1
+</pre></div>
+
+
+<p>通过如下命令使之生效：</p>
+<div class="highlight"><pre>sysctl -p
+</pre></div>
+
+
+<p>重启<code>pptpd</code>服务：</p>
+<div class="highlight"><pre>service pptpd restart
+</pre></div>
+
+
+<p>如果不配置ufw防火墙的话，至此即可实现vpn认证连接。
+如需要实现vpn上网，仍需要设置iptables：(如后面配置ufw则不用这一步)
+其中<code>-s</code>指定的来源地址对应<code>/etc/pptpd.conf</code>中的ip网段。</p>
+<div class="highlight"><pre>iptables -t nat -A POSTROUTING -s 192.168.100.0/24 -o eth0 -j MASQUERADE
+</pre></div>
+
+
+<h2>配置ufw</h2>
+<p>如果系统启用了ufw防火墙，还需进一步配置。</p>
+<p>编辑<code>/etc/netword/interfaces</code>：
+设置eth0的ip别名：
+address对应<code>/etc/pptpd.conf</code>中的设置。</p>
+<div class="highlight"><pre>auto eth0:0
+iface eth0:0 inet static
+address 192.168.100.1
+netmask 255.255.255.0
+</pre></div>
+
+
+<p>编辑<code>/etc/default/ufw</code>：
+修改<code>DEFAULT_FORWARD_POLICY</code>字段为<code>ACCEPT</code>。</p>
+<div class="highlight"><pre>DEFAULT_FORWARD_POLICY=“ACCEPT”
+</pre></div>
+
+
+<p>编辑<code>/etc/ufw/before.rules</code>：
+加入如下内容至<code>*filter</code>规则前，通过iptables实现转发。</p>
+<div class="highlight"><pre>*nat
+:POSTROUTING ACCEPT [0:0]
+-A POSTROUTING -s 192.168.2.0/24 -o eth0 -j MASQUERADE
+
+COMMIT
+</pre></div>
+
+
+<p>ufw中加入允许pptp默认的1723端口：</p>
+<div class="highlight"><pre>ufw allow 1723
+</pre></div>
+
+
+<p>最后重启服务：</p>
+<div class="highlight"><pre>service networking restart
+service ufw restart
+service pptpd restart
+</pre></div>
+
+
+<p>至此pptp vpn的服务器端配置完毕。</p>
+<h2>参考</h2>
+<p><a href="http://silverlinux.blogspot.com/2012/05/how-to-pptp-vpn-on-ubuntu-1204-pptpd.html">http://silverlinux.blogspot.com/2012/05/how-to-pptp-vpn-on-ubuntu-1204-pptpd.html</a></p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+              <ul class="list-group" id="social">
+                <li class="list-group-item"><a href="http://twitter.com/ggshiney"><i class="fa fa-twitter-square fa-lg"></i> twitter</a></li>
+                <li class="list-group-item"><a href="http://github.com/ggshiney"><i class="fa fa-github-square fa-lg"></i> github</a></li>
+              </ul>
+            </li>
+
+
+
+            <li class="list-group-item"><a href="http://blog.ggshiney.com/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group " id="tags">
+                </ul>
+            </li>
+    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+      <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://getpelican.com/" target="_blank">
+                Pelican
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="http://python.org/" target="_blank">
+                Python.org
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="http://jinja.pocoo.org/" target="_blank">
+                Jinja2
+            </a>
+        </li>
+      </ul>
+    </li>
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2015 ggshiney
+            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://blog.ggshiney.com/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://blog.ggshiney.com/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://blog.ggshiney.com/theme/js/respond.min.js"></script>
+
+
+</body>
+</html>

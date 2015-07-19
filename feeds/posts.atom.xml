@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ggshiney blog</title><link href="http://blog.ggshiney.com/" rel="alternate"></link><link href="http://blog.ggshiney.com/feeds/posts.atom.xml" rel="self"></link><id>http://blog.ggshiney.com/</id><updated>2015-07-19T21:34:55+08:00</updated><entry><title>Resurrection for this Blog</title><link href="http://blog.ggshiney.com/posts/2015/07/19/resurrection-for-this-blog.html" rel="alternate"></link><updated>2015-07-19T21:34:55+08:00</updated><author><name>ggshiney</name></author><id>tag:blog.ggshiney.com,2015-07-19:posts/2015/07/19/resurrection-for-this-blog.html</id><summary type="html">&lt;p&gt;翻阅了一下，上次Blog写作还要追溯到近2年前，期间由于毕业求职繁忙就将Blog搁置了。
+每年域名续费而不善加利用，想想就此荒废了未免可惜，现在重新拾起。
+希望平时多记录一些学习心得与工作中的思考。&lt;/p&gt;
+&lt;p&gt;说到Blog，目前写作这篇文章时Blog是采用&lt;a href="https://pages.github.com/"&gt;Github Pages&lt;/a&gt;服务托管的静态页面。
+曾几何时，基于&lt;a href="http://jekyllrb.com/"&gt;Jekyll&lt;/a&gt;渲染生成静态Html的Blog风靡一时，而&lt;a href="http://octopress.org/"&gt;Octopress&lt;/a&gt;封装简洁的模版，便捷的部署工具，方便的命令行工具链，更使得码农阶层搭建一个静态博客站点称为了一种时尚。
+回顾一下个人网站的发展历程，从早期CS学术圈子的大白纸静态网页，到Wordpress动态Blog热潮，如今似乎又回归了静态页面的本源。
+这里不深入探究网页服务技术的发展历程，单单从这个轮回本身看，确实是一个有意思的现象。
+我的这个Blog也是搭乘了那时的&lt;a href="http://jekyllrb.com/"&gt;Jekyll&lt;/a&gt;热潮。
+怎奈作为Python党的一员，一直对基于Ruby的Jekyll-Octopress心存怨念，所幸发现了&lt;a href="http://blog.getpelican.com/"&gt;pelican&lt;/a&gt;这个python替代品。
+此后我的Blog便一直是pelican渲染生成与维护的。广大前端工程师如今也有了自己的Octopress: &lt;a href="http://hexo.io/"&gt;hexo&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;当然 ，其实世界远比想象得大，比如参看以下这个&lt;a href="https://staticsitegenerators.net/"&gt;https://staticsitegenerators.net/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这篇文章作为Blog重启后的第一篇，抛砖引玉，希望之后坚持写作习惯。&lt;/p&gt;</summary></entry></feed>
